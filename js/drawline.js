@@ -53,7 +53,7 @@ function findStartHole(x, y) {
     canvas.style.display = "none";
     var hole = document.elementFromPoint(x, y);
     console.log(hole);
-    if (hole.className == "mhole") {
+    if (hole.className == "mhole" || hole.className == "hole") {
         startCenterX = hole.offsetLeft + (hole.offsetWidth / 10);
         startCenterY = hole.offsetTop + (hole.offsetHeight / 10);
     }else if(hole.className == "centerRect") {
@@ -69,7 +69,7 @@ function findEndHole(x, y) {
     canvas.style.display = "none";
     var hole = document.elementFromPoint(x, y);
     console.log(hole);
-    if (hole.className == "mhole") {
+    if (hole.className == "mhole" || hole.className == "hole") {
         endCenterX = hole.offsetLeft + (hole.offsetWidth / 10);
         endCenterY = hole.offsetTop + (hole.offsetHeight / 10);
         canvas.style.display = "";
