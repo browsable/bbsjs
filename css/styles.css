@@ -1,0 +1,108 @@
+
+body {
+  padding-top: 70px;
+}
+#selectable {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 450px;
+}
+#selectable li {
+  float:left;
+  width: 100px;
+  height: inherit;
+  text-align: center;
+}
+
+.plusbar{
+  background-color: red;
+  width: inherit;
+  height: 1px;
+  display: block;
+}
+.minusbar{
+  background-color: blue;
+  width: inherit;
+  height: 1px;
+  display: block;
+  clear: both;
+}
+
+#breadboard{
+  float:left;
+  width: inherit;
+  height:500px;
+  margin:2px;
+  padding:10px;
+  border:1px solid #c0a16b;
+  background-color: rgba(177, 131, 90, 0.2);
+  position:relative
+}
+
+#componentsBox{
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width:inherit;
+  height:30vh;
+  border:1px solid blanchedalmond;
+}
+
+#component{
+  width:40px;
+  height:40px;
+  border:1px solid blanchedalmond;
+  background-color: transparent;
+}
+.powersection {
+  width: 100%;
+  list-style-type: none;
+  margin : 0;
+  padding: 0;
+}
+.plusline{
+  width: 100%;
+  list-style-type: none;
+  margin : 0;
+  padding: 0 60px 0 74px;
+}
+.minusline{
+  width: 100%;
+  list-style-type: none;
+  margin : 0;
+  padding: 0 60px 0 74px;
+}
+.hole{
+  width: 6px;
+  height: 6px;
+  float: left;
+  margin: 0 12px 15px 7px;
+  background-color: black;
+}
+.dummy{
+  width: 6px;
+  height: 6px;
+  float: left;
+  margin: 0 12px 15px 7px;
+  background-color: transparent;
+}
+.mhole{
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  margin: 0 0px 15px 0px;
+}
+.middlesection {
+  width: 100%;
+  height: 26%;
+  list-style-type: none;
+  margin : 0;
+  padding: 20px 30px 30px 23px;
+  display: inline-block;
+}
+.verticalline{
+  width: 6px;
+  height: 6px;
+  float: left;
+  margin: 0 12px 15px 7px;
+}

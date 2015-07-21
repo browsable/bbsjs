@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Bread Board Simulation</title>
+    <script src="js/Drag.js"></script>
+    <script type="text/javascript" src="js/drawline.js"></script>
+    <script type="text/javascript" src="js/loadcanvas.js"></script>
+    <meta name="generator" content="Bootply"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link href="css/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body onload="InitThis();">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" rel="home" href="#">BBS</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">File<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Open</a></li>
+                    <li><a href="#">Save As..</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">undo</a></li>
+                    <li><a href="#">refresh</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">about..</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+
+    <!--left-->
+    <div class="col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>Components</h4></div>
+            <div class="panel-body">
+                <div id="componentsBox">
+                    <ol id="selectable">
+                        <li>
+                            <img id="led" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li>
+                            <img id="resistor1" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li>
+                            <img id="resistor2" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor3" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor4" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor5" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor6" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor7" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor8" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor9" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor10" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor11" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor12" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor13" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor14" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                        <li><img id="resistor15" src="images/led.png" width="36">
+                            <h5 class="ui-widget-header" align="center">LED</h5>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4 style="">Properties</h4></div>
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam
+                sit amet vulputate.
+                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                Aliquam in felis sit amet augue.
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Title</div>
+            <div class="panel-body">Content here..</div>
+        </div>
+
+    </div>
+    <!--/left-->
+
+    <!--center: 빵판 영역-->
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <button onclick="clearArea();return false;">Clear Area</button>
+                Line width : <select id="selWidth">
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="5" selected="selected">5</option>
+                <option value="7">7</option>
+                <option value="9">9</option>
+                <option value="11">11</option>
+            </select>
+                Color : <select id="selColor">
+                <option value="black"selected="selected">black</option>
+                <option value="blue" >blue</option>
+                <option value="red">red</option>
+                <option value="green">green</option>
+                <option value="yellow">yellow</option>
+                <option value="gray">gray</option>
+            </select>
+
+                <section id="breadboard">
+                    <script type="text/javascript">
+                        loadCanvas("breadboard");
+                    </script>
+                    <div class="powersection">
+                        <hr class="plusbar">
+                        <div class="plusline">
+                            <div class="hole" id="hole0_0">
+                            </div>
+                            <div class="hole" id="hole0_1">
+                            </div>
+                            <div class="hole" id="hole0_2">
+                            </div>
+                            <div class="hole" id="hole0_3">
+                            </div>
+                            <div class="hole" id="hole0_4">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole0_5">
+                            </div>
+                            <div class="hole" id="hole0_6">
+                            </div>
+                            <div class="hole" id="hole0_7">
+                            </div>
+                            <div class="hole" id="hole0_8">
+                            </div>
+                            <div class="hole" id="hole0_9">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole0_10">
+                            </div>
+                            <div class="hole" id="hole0_11">
+                            </div>
+                            <div class="hole" id="hole0_12">
+                            </div>
+                            <div class="hole" id="hole0_13">
+                            </div>
+                            <div class="hole" id="hole0_14">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole0_15">
+                            </div>
+                            <div class="hole" id="hole0_16">
+                            </div>
+                            <div class="hole" id="hole0_17">
+                            </div>
+                            <div class="hole" id="hole0_18">
+                            </div>
+                            <div class="hole" id="hole0_19">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole0_20">
+                            </div>
+                            <div class="hole" id="hole0_21">
+                            </div>
+                            <div class="hole" id="hole0_22">
+                            </div>
+                            <div class="hole" id="hole0_23">
+                            </div>
+                            <div class="hole" id="hole0_24">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="minusline">
+                            <div class="hole" id="hole1_0">
+                            </div>
+                            <div class="hole" id="hole1_1">
+                            </div>
+                            <div class="hole" id="hole1_2">
+                            </div>
+                            <div class="hole" id="hole1_3">
+                            </div>
+                            <div class="hole" id="hole1_4">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole1_5">
+                            </div>
+                            <div class="hole" id="hole1_6">
+                            </div>
+                            <div class="hole" id="hole1_7">
+                            </div>
+                            <div class="hole" id="hole1_8">
+                            </div>
+                            <div class="hole" id="hole1_9">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole1_10">
+                            </div>
+                            <div class="hole" id="hole1_11">
+                            </div>
+                            <div class="hole" id="hole1_12">
+                            </div>
+                            <div class="hole" id="hole1_13">
+                            </div>
+                            <div class="hole" id="hole1_14">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole1_15">
+                            </div>
+                            <div class="hole" id="hole1_16">
+                            </div>
+                            <div class="hole" id="hole1_17">
+                            </div>
+                            <div class="hole" id="hole1_18">
+                            </div>
+                            <div class="hole" id="hole1_19">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole1_20">
+                            </div>
+                            <div class="hole" id="hole1_21">
+                            </div>
+                            <div class="hole" id="hole1_22">
+                            </div>
+                            <div class="hole" id="hole1_23">
+                            </div>
+                            <div class="hole" id="hole1_24">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                        </div>
+                        <hr class="minusbar">
+                    </div>
+                    <div class="middlesection">
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole1_a">
+                            </div>
+                            <div class="mhole" id="mhole1_b">
+                            </div>
+                            <div class="mhole" id="mhole1_c">
+                            </div>
+                            <div class="mhole" id="mhole1_d">
+                            </div>
+                            <div class="mhole" id="mhole1_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole2_a">
+                            </div>
+                            <div class="mhole" id="mhole2_b">
+                            </div>
+                            <div class="mhole" id="mhole2_c">
+                            </div>
+                            <div class="mhole" id="mhole2_d">
+                            </div>
+                            <div class="mhole" id="mhole2_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole3_a">
+                            </div>
+                            <div class="mhole" id="mhole3_b">
+                            </div>
+                            <div class="mhole" id="mhole3_c">
+                            </div>
+                            <div class="mhole" id="mhole3_d">
+                            </div>
+                            <div class="mhole" id="mhole3_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole4_a">
+                            </div>
+                            <div class="mhole" id="mhole4_b">
+                            </div>
+                            <div class="mhole" id="mhole4_c">
+                            </div>
+                            <div class="mhole" id="mhole4_d">
+                            </div>
+                            <div class="mhole" id="mhole4_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole5_a">
+                            </div>
+                            <div class="mhole" id="mhole5_b">
+                            </div>
+                            <div class="mhole" id="mhole5_c">
+                            </div>
+                            <div class="mhole" id="mhole5_d">
+                            </div>
+                            <div class="mhole" id="mhole5_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole6_a">
+                            </div>
+                            <div class="mhole" id="mhole6_b">
+                            </div>
+                            <div class="mhole" id="mhole6_c">
+                            </div>
+                            <div class="mhole" id="mhole6_d">
+                            </div>
+                            <div class="mhole" id="mhole6_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole7_a">
+                            </div>
+                            <div class="mhole" id="mhole7_b">
+                            </div>
+                            <div class="mhole" id="mhole7_c">
+                            </div>
+                            <div class="mhole" id="mhole7_d">
+                            </div>
+                            <div class="mhole" id="mhole7_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole8_a">
+                            </div>
+                            <div class="mhole" id="mhole8_b">
+                            </div>
+                            <div class="mhole" id="mhole8_c">
+                            </div>
+                            <div class="mhole" id="mhole8_d">
+                            </div>
+                            <div class="mhole" id="mhole8_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole9_a">
+                            </div>
+                            <div class="mhole" id="mhole9_b">
+                            </div>
+                            <div class="mhole" id="mhole9_c">
+                            </div>
+                            <div class="mhole" id="mhole9_d">
+                            </div>
+                            <div class="mhole" id="mhole9_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole10_a">
+                            </div>
+                            <div class="mhole" id="mhole10_b">
+                            </div>
+                            <div class="mhole" id="mhole10_c">
+                            </div>
+                            <div class="mhole" id="mhole10_d">
+                            </div>
+                            <div class="mhole" id="mhole10_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole11_a">
+                            </div>
+                            <div class="mhole" id="mhole11_b">
+                            </div>
+                            <div class="mhole" id="mhole11_c">
+                            </div>
+                            <div class="mhole" id="mhole11_d">
+                            </div>
+                            <div class="mhole" id="mhole11_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole12_a">
+                            </div>
+                            <div class="mhole" id="mhole12_b">
+                            </div>
+                            <div class="mhole" id="mhole12_c">
+                            </div>
+                            <div class="mhole" id="mhole12_d">
+                            </div>
+                            <div class="mhole" id="mhole12_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole13_a">
+                            </div>
+                            <div class="mhole" id="mhole13_b">
+                            </div>
+                            <div class="mhole" id="mhole13_c">
+                            </div>
+                            <div class="mhole" id="mhole13_d">
+                            </div>
+                            <div class="mhole" id="mhole13_e">
+                            </div>
+                        </div>
+
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole14_a">
+                            </div>
+                            <div class="mhole" id="mhole14_b">
+                            </div>
+                            <div class="mhole" id="mhole14_c">
+                            </div>
+                            <div class="mhole" id="mhole14_d">
+                            </div>
+                            <div class="mhole" id="mhole14_e">
+                            </div>
+                        </div>
+
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole15_a">
+                            </div>
+                            <div class="mhole" id="mhole15_b">
+                            </div>
+                            <div class="mhole" id="mhole15_c">
+                            </div>
+                            <div class="mhole" id="mhole15_d">
+                            </div>
+                            <div class="mhole" id="mhole15_e">
+                            </div>
+                        </div>
+
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole16_a">
+                            </div>
+                            <div class="mhole" id="mhole16_b">
+                            </div>
+                            <div class="mhole" id="mhole16_c">
+                            </div>
+                            <div class="mhole" id="mhole16_d">
+                            </div>
+                            <div class="mhole" id="mhole16_e">
+                            </div>
+                        </div>
+
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole17_a">
+                            </div>
+                            <div class="mhole" id="mhole17_b">
+                            </div>
+                            <div class="mhole" id="mhole17_c">
+                            </div>
+                            <div class="mhole" id="mhole17_d">
+                            </div>
+                            <div class="mhole" id="mhole17_e">
+                            </div>
+                        </div>
+
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole18_a">
+                            </div>
+                            <div class="mhole" id="mhole18_b">
+                            </div>
+                            <div class="mhole" id="mhole18_c">
+                            </div>
+                            <div class="mhole" id="mhole18_d">
+                            </div>
+                            <div class="mhole" id="mhole18_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole19_a">
+                            </div>
+                            <div class="mhole" id="mhole19_b">
+                            </div>
+                            <div class="mhole" id="mhole19_c">
+                            </div>
+                            <div class="mhole" id="mhole19_d">
+                            </div>
+                            <div class="mhole" id="mhole19_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole20_a">
+                            </div>
+                            <div class="mhole" id="mhole20_b">
+                            </div>
+                            <div class="mhole" id="mhole20_c">
+                            </div>
+                            <div class="mhole" id="mhole20_d">
+                            </div>
+                            <div class="mhole" id="mhole20_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole21_a">
+                            </div>
+                            <div class="mhole" id="mhole21_b">
+                            </div>
+                            <div class="mhole" id="mhole21_c">
+                            </div>
+                            <div class="mhole" id="mhole21_d">
+                            </div>
+                            <div class="mhole" id="mhole21_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole22_a">
+                            </div>
+                            <div class="mhole" id="mhole22_b">
+                            </div>
+                            <div class="mhole" id="mhole22_c">
+                            </div>
+                            <div class="mhole" id="mhole22_d">
+                            </div>
+                            <div class="mhole" id="mhole22_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole23_a">
+                            </div>
+                            <div class="mhole" id="mhole23_b">
+                            </div>
+                            <div class="mhole" id="mhole23_c">
+                            </div>
+                            <div class="mhole" id="mhole23_d">
+                            </div>
+                            <div class="mhole" id="mhole23_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole24_a">
+                            </div>
+                            <div class="mhole" id="mhole24_b">
+                            </div>
+                            <div class="mhole" id="mhole24_c">
+                            </div>
+                            <div class="mhole" id="mhole24_d">
+                            </div>
+                            <div class="mhole" id="mhole24_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole25_a">
+                            </div>
+                            <div class="mhole" id="mhole25_b">
+                            </div>
+                            <div class="mhole" id="mhole25_c">
+                            </div>
+                            <div class="mhole" id="mhole25_d">
+                            </div>
+                            <div class="mhole" id="mhole25_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole26_a">
+                            </div>
+                            <div class="mhole" id="mhole26_b">
+                            </div>
+                            <div class="mhole" id="mhole26_c">
+                            </div>
+                            <div class="mhole" id="mhole26_d">
+                            </div>
+                            <div class="mhole" id="mhole26_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole27_a">
+                            </div>
+                            <div class="mhole" id="mhole27_b">
+                            </div>
+                            <div class="mhole" id="mhole27_c">
+                            </div>
+                            <div class="mhole" id="mhole27_d">
+                            </div>
+                            <div class="mhole" id="mhole27_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole28_a">
+                            </div>
+                            <div class="mhole" id="mhole28_b">
+                            </div>
+                            <div class="mhole" id="mhole28_c">
+                            </div>
+                            <div class="mhole" id="mhole28_d">
+                            </div>
+                            <div class="mhole" id="mhole28_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole29_a">
+                            </div>
+                            <div class="mhole" id="mhole29_b">
+                            </div>
+                            <div class="mhole" id="mhole29_c">
+                            </div>
+                            <div class="mhole" id="mhole29_d">
+                            </div>
+                            <div class="mhole" id="mhole29_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole30_a">
+                            </div>
+                            <div class="mhole" id="mhole30_b">
+                            </div>
+                            <div class="mhole" id="mhole30_c">
+                            </div>
+                            <div class="mhole" id="mhole30_d">
+                            </div>
+                            <div class="mhole" id="mhole30_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole31_a">
+                            </div>
+                            <div class="mhole" id="mhole31_b">
+                            </div>
+                            <div class="mhole" id="mhole31_c">
+                            </div>
+                            <div class="mhole" id="mhole31_d">
+                            </div>
+                            <div class="mhole" id="mhole31_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole32_a">
+                            </div>
+                            <div class="mhole" id="mhole32_b">
+                            </div>
+                            <div class="mhole" id="mhole32_c">
+                            </div>
+                            <div class="mhole" id="mhole32_d">
+                            </div>
+                            <div class="mhole" id="mhole32_e">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole33_a">
+                            </div>
+                            <div class="mhole" id="mhole33_b">
+                            </div>
+                            <div class="mhole" id="mhole33_c">
+                            </div>
+                            <div class="mhole" id="mhole33_d">
+                            </div>
+                            <div class="mhole" id="mhole33_e">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="middlesection">
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole1_f">
+                            </div>
+                            <div class="mhole" id="mhole1_g">
+                            </div>
+                            <div class="mhole" id="mhole1_h">
+                            </div>
+                            <div class="mhole" id="mhole1_i">
+                            </div>
+                            <div class="mhole" id="mhole1_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole2_f">
+                            </div>
+                            <div class="mhole" id="mhole2_g">
+                            </div>
+                            <div class="mhole" id="mhole2_h">
+                            </div>
+                            <div class="mhole" id="mhole2_i">
+                            </div>
+                            <div class="mhole" id="mhole2_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole3_f">
+                            </div>
+                            <div class="mhole" id="mhole3_g">
+                            </div>
+                            <div class="mhole" id="mhole3_h">
+                            </div>
+                            <div class="mhole" id="mhole3_i">
+                            </div>
+                            <div class="mhole" id="mhole3_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole4_f">
+                            </div>
+                            <div class="mhole" id="mhole4_g">
+                            </div>
+                            <div class="mhole" id="mhole4_h">
+                            </div>
+                            <div class="mhole" id="mhole4_i">
+                            </div>
+                            <div class="mhole" id="mhole4_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole5_f">
+                            </div>
+                            <div class="mhole" id="mhole5_g">
+                            </div>
+                            <div class="mhole" id="mhole5_h">
+                            </div>
+                            <div class="mhole" id="mhole5_i">
+                            </div>
+                            <div class="mhole" id="mhole5_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole6_f">
+                            </div>
+                            <div class="mhole" id="mhole6_g">
+                            </div>
+                            <div class="mhole" id="mhole6_h">
+                            </div>
+                            <div class="mhole" id="mhole6_i">
+                            </div>
+                            <div class="mhole" id="mhole6_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole7_f">
+                            </div>
+                            <div class="mhole" id="mhole7_g">
+                            </div>
+                            <div class="mhole" id="mhole7_h">
+                            </div>
+                            <div class="mhole" id="mhole7_i">
+                            </div>
+                            <div class="mhole" id="mhole7_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole8_f">
+                            </div>
+                            <div class="mhole" id="mhole8_g">
+                            </div>
+                            <div class="mhole" id="mhole8_h">
+                            </div>
+                            <div class="mhole" id="mhole8_i">
+                            </div>
+                            <div class="mhole" id="mhole8_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole9_f">
+                            </div>
+                            <div class="mhole" id="mhole9_g">
+                            </div>
+                            <div class="mhole" id="mhole9_h">
+                            </div>
+                            <div class="mhole" id="mhole9_i">
+                            </div>
+                            <div class="mhole" id="mhole9_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole10_f">
+                            </div>
+                            <div class="mhole" id="mhole10_g">
+                            </div>
+                            <div class="mhole" id="mhole10_h">
+                            </div>
+                            <div class="mhole" id="mhole10_i">
+                            </div>
+                            <div class="mhole" id="mhole10_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole11_f">
+                            </div>
+                            <div class="mhole" id="mhole11_g">
+                            </div>
+                            <div class="mhole" id="mhole11_h">
+                            </div>
+                            <div class="mhole" id="mhole11_i">
+                            </div>
+                            <div class="mhole" id="mhole11_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole12_f">
+                            </div>
+                            <div class="mhole" id="mhole12_g">
+                            </div>
+                            <div class="mhole" id="mhole12_h">
+                            </div>
+                            <div class="mhole" id="mhole12_i">
+                            </div>
+                            <div class="mhole" id="mhole12_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole13_f">
+                            </div>
+                            <div class="mhole" id="mhole13_g">
+                            </div>
+                            <div class="mhole" id="mhole13_h">
+                            </div>
+                            <div class="mhole" id="mhole13_i">
+                            </div>
+                            <div class="mhole" id="mhole13_j">
+                            </div>
+                        </div>
+
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole14_f">
+                            </div>
+                            <div class="mhole" id="mhole14_g">
+                            </div>
+                            <div class="mhole" id="mhole14_h">
+                            </div>
+                            <div class="mhole" id="mhole14_i">
+                            </div>
+                            <div class="mhole" id="mhole14_j">
+                            </div>
+                        </div>
+
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole15_f">
+                            </div>
+                            <div class="mhole" id="mhole15_g">
+                            </div>
+                            <div class="mhole" id="mhole15_h">
+                            </div>
+                            <div class="mhole" id="mhole15_i">
+                            </div>
+                            <div class="mhole" id="mhole15_j">
+                            </div>
+                        </div>
+
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole16_f">
+                            </div>
+                            <div class="mhole" id="mhole16_g">
+                            </div>
+                            <div class="mhole" id="mhole16_h">
+                            </div>
+                            <div class="mhole" id="mhole16_i">
+                            </div>
+                            <div class="mhole" id="mhole16_j">
+                            </div>
+                        </div>
+
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole17_f">
+                            </div>
+                            <div class="mhole" id="mhole17_g">
+                            </div>
+                            <div class="mhole" id="mhole17_h">
+                            </div>
+                            <div class="mhole" id="mhole17_i">
+                            </div>
+                            <div class="mhole" id="mhole17_j">
+                            </div>
+                        </div>
+
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole18_f">
+                            </div>
+                            <div class="mhole" id="mhole18_g">
+                            </div>
+                            <div class="mhole" id="mhole18_h">
+                            </div>
+                            <div class="mhole" id="mhole18_i">
+                            </div>
+                            <div class="mhole" id="mhole18_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole19_f">
+                            </div>
+                            <div class="mhole" id="mhole19_g">
+                            </div>
+                            <div class="mhole" id="mhole19_h">
+                            </div>
+                            <div class="mhole" id="mhole19_i">
+                            </div>
+                            <div class="mhole" id="mhole19_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole20_f">
+                            </div>
+                            <div class="mhole" id="mhole20_g">
+                            </div>
+                            <div class="mhole" id="mhole20_h">
+                            </div>
+                            <div class="mhole" id="mhole20_i">
+                            </div>
+                            <div class="mhole" id="mhole20_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole21_f">
+                            </div>
+                            <div class="mhole" id="mhole21_g">
+                            </div>
+                            <div class="mhole" id="mhole21_h">
+                            </div>
+                            <div class="mhole" id="mhole21_i">
+                            </div>
+                            <div class="mhole" id="mhole21_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole22_f">
+                            </div>
+                            <div class="mhole" id="mhole22_g">
+                            </div>
+                            <div class="mhole" id="mhole22_h">
+                            </div>
+                            <div class="mhole" id="mhole22_i">
+                            </div>
+                            <div class="mhole" id="mhole22_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole23_f">
+                            </div>
+                            <div class="mhole" id="mhole23_g">
+                            </div>
+                            <div class="mhole" id="mhole23_h">
+                            </div>
+                            <div class="mhole" id="mhole23_i">
+                            </div>
+                            <div class="mhole" id="mhole23_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole24_f">
+                            </div>
+                            <div class="mhole" id="mhole24_g">
+                            </div>
+                            <div class="mhole" id="mhole24_h">
+                            </div>
+                            <div class="mhole" id="mhole24_i">
+                            </div>
+                            <div class="mhole" id="mhole24_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole25_f">
+                            </div>
+                            <div class="mhole" id="mhole25_g">
+                            </div>
+                            <div class="mhole" id="mhole25_h">
+                            </div>
+                            <div class="mhole" id="mhole25_i">
+                            </div>
+                            <div class="mhole" id="mhole25_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole26_f">
+                            </div>
+                            <div class="mhole" id="mhole26_g">
+                            </div>
+                            <div class="mhole" id="mhole26_h">
+                            </div>
+                            <div class="mhole" id="mhole26_i">
+                            </div>
+                            <div class="mhole" id="mhole26_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole27_f">
+                            </div>
+                            <div class="mhole" id="mhole27_g">
+                            </div>
+                            <div class="mhole" id="mhole27_h">
+                            </div>
+                            <div class="mhole" id="mhole27_i">
+                            </div>
+                            <div class="mhole" id="mhole27_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole28_f">
+                            </div>
+                            <div class="mhole" id="mhole28_g">
+                            </div>
+                            <div class="mhole" id="mhole28_h">
+                            </div>
+                            <div class="mhole" id="mhole28_i">
+                            </div>
+                            <div class="mhole" id="mhole28_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole29_f">
+                            </div>
+                            <div class="mhole" id="mhole29_g">
+                            </div>
+                            <div class="mhole" id="mhole29_h">
+                            </div>
+                            <div class="mhole" id="mhole29_i">
+                            </div>
+                            <div class="mhole" id="mhole29_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole30_f">
+                            </div>
+                            <div class="mhole" id="mhole30_g">
+                            </div>
+                            <div class="mhole" id="mhole30_h">
+                            </div>
+                            <div class="mhole" id="mhole30_i">
+                            </div>
+                            <div class="mhole" id="mhole30_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole31_f">
+                            </div>
+                            <div class="mhole" id="mhole31_g">
+                            </div>
+                            <div class="mhole" id="mhole31_h">
+                            </div>
+                            <div class="mhole" id="mhole31_i">
+                            </div>
+                            <div class="mhole" id="mhole31_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole32_f">
+                            </div>
+                            <div class="mhole" id="mhole32_g">
+                            </div>
+                            <div class="mhole" id="mhole32_h">
+                            </div>
+                            <div class="mhole" id="mhole32_i">
+                            </div>
+                            <div class="mhole" id="mhole32_j">
+                            </div>
+                        </div>
+                        <div class="verticalline">
+                            <div class="mhole" id="mhole33_f">
+                            </div>
+                            <div class="mhole" id="mhole33_g">
+                            </div>
+                            <div class="mhole" id="mhole33_h">
+                            </div>
+                            <div class="mhole" id="mhole33_i">
+                            </div>
+                            <div class="mhole" id="mhole33_j">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="powersection">
+                        <hr class="plusbar">
+                        <div class="plusline">
+                            <div class="hole" id="hole2_0">
+                            </div>
+                            <div class="hole" id="hole2_1">
+                            </div>
+                            <div class="hole" id="hole2_2">
+                            </div>
+                            <div class="hole" id="hole2_3">
+                            </div>
+                            <div class="hole" id="hole2_4">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole2_5">
+                            </div>
+                            <div class="hole" id="hole2_6">
+                            </div>
+                            <div class="hole" id="hole2_7">
+                            </div>
+                            <div class="hole" id="hole2_8">
+                            </div>
+                            <div class="hole" id="hole2_9">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole2_10">
+                            </div>
+                            <div class="hole" id="hole2_11">
+                            </div>
+                            <div class="hole" id="hole2_12">
+                            </div>
+                            <div class="hole" id="hole2_13">
+                            </div>
+                            <div class="hole" id="hole2_14">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole2_15">
+                            </div>
+                            <div class="hole" id="hole2_16">
+                            </div>
+                            <div class="hole" id="hole2_17">
+                            </div>
+                            <div class="hole" id="hole2_18">
+                            </div>
+                            <div class="hole" id="hole2_19">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole2_20">
+                            </div>
+                            <div class="hole" id="hole2_21">
+                            </div>
+                            <div class="hole" id="hole2_22">
+                            </div>
+                            <div class="hole" id="hole2_23">
+                            </div>
+                            <div class="hole" id="hole2_24">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="minusline">
+                            <div class="hole" id="hole3_0">
+                            </div>
+                            <div class="hole" id="hole3_1">
+                            </div>
+                            <div class="hole" id="hole3_2">
+                            </div>
+                            <div class="hole" id="hole3_3">
+                            </div>
+                            <div class="hole" id="hole3_4">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole3_5">
+                            </div>
+                            <div class="hole" id="hole3_6">
+                            </div>
+                            <div class="hole" id="hole3_7">
+                            </div>
+                            <div class="hole" id="hole3_8">
+                            </div>
+                            <div class="hole" id="hole3_9">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole3_10">
+                            </div>
+                            <div class="hole" id="hole3_11">
+                            </div>
+                            <div class="hole" id="hole3_12">
+                            </div>
+                            <div class="hole" id="hole3_13">
+                            </div>
+                            <div class="hole" id="hole3_14">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole3_15">
+                            </div>
+                            <div class="hole" id="hole3_16">
+                            </div>
+                            <div class="hole" id="hole3_17">
+                            </div>
+                            <div class="hole" id="hole3_18">
+                            </div>
+                            <div class="hole" id="hole3_19">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                            <div class="hole" id="hole3_20">
+                            </div>
+                            <div class="hole" id="hole3_21">
+                            </div>
+                            <div class="hole" id="hole3_22">
+                            </div>
+                            <div class="hole" id="hole3_23">
+                            </div>
+                            <div class="hole" id="hole3_24">
+                            </div>
+                            <div class="dummy">
+                            </div>
+                        </div>
+                        <hr class="minusbar">
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+    <!--/center-->
+    <!--right-->
+    <div class="col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Title</div>
+            <div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                Aliquam in felis sit amet augue.
+            </div>
+
+        </div>
+
+    </div>
+    <!--/right-->
+
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
