@@ -15,22 +15,3 @@
 	 component.innerHTML = e.dataTransfer.getData('Text');
  }
  window.addEventListener("load",doFirst,false);
-
- $(function() {
-	 $( "#selectable" ).selectable();
- });
-
- $(function() {
-	 $( "#draggable, #draggable-nonvalid" ).draggable();
-	 $( "#droppable" ).droppable({
-		 accept: "#draggable",
-		 activeClass: "ui-state-hover",
-		 hoverClass: "ui-state-active",
-		 drop: function( event, ui ) {
-			 $( this )
-				 .addClass( "ui-state-highlight" )
-				 .find( "p" )
-				 .html( "Dropped!" );
-		 }
-	 });
- });

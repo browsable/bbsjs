@@ -1,6 +1,7 @@
 var mousePressed = false;
 var lastX, lastY;
 var ctx;
+var bbstartX, bbstartY; //breadboard로 전달할 좌표
 
 function InitThis() {
     ctx = document.getElementById('myCanvas').getContext("2d");
@@ -8,6 +9,8 @@ function InitThis() {
     $('#myCanvas').mousedown(function (e) {
         mousePressed = true;
         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+        findHole(e.clientX, e.clientY);
+
     });
 
     $('#myCanvas').mousemove(function (e) {
@@ -42,4 +45,13 @@ function clearArea() {
     // Use the identity matrix while clearing the canvas
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+}
+
+function findHole(x, y){
+    var canvas = document.elementFromPoint(x,y);
+    canvas.style.display ="none";
+
+    var hole = document.elementFromPoint(x, y);
+    console.log(hole);
+    canvas.style.display ="";
 }
