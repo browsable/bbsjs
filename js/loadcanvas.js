@@ -6,7 +6,7 @@ function loadCanvas(id) {
     div = document.getElementById(id);
     canvas.id     = "myCanvas";
     canvas.width  = 890;
-    canvas.height = 480;
+    canvas.height = 580;
     canvas.style.zIndex   = 8;
     canvas.style.position = "absolute";
     div.appendChild(canvas)

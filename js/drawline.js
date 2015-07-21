@@ -1,15 +1,14 @@
 var mousePressed = false;
 var lastX, lastY;
 var ctx;
-var bbstartX, bbstartY; //breadboard로 전달할 좌표
-
+var startCenterX,startCenterY, endCenterX, endCenterY;
 function InitThis() {
     ctx = document.getElementById('myCanvas').getContext("2d");
 
     $('#myCanvas').mousedown(function (e) {
         mousePressed = true;
         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
-        findHole(e.clientX, e.clientY);
+        findStartHole(e.clientX, e.clientY);
 
     });
 
@@ -21,6 +20,7 @@ function InitThis() {
 
     $('#myCanvas').mouseup(function (e) {
         mousePressed = false;
+        findEndHole(e.clientX, e.clientY);
     });
     $('#myCanvas').mouseleave(function (e) {
         mousePressed = false;
@@ -47,11 +47,27 @@ function clearArea() {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
-function findHole(x, y){
+function findStartHole(x, y){
     var canvas = document.elementFromPoint(x,y);
     canvas.style.display ="none";
 
     var hole = document.elementFromPoint(x, y);
     console.log(hole);
+    startCenterX = (hole.offsetLeft+hole.offsetWidth)/2;
+    startCenterY = (hole.offsetTop+hole.offsetHeight)/2;
     canvas.style.display ="";
+}
+function findEndHole(x, y){
+    var canvas = document.elementFromPoint(x,y);
+    canvas.style.display ="none";
+
+    var hole = document.elementFromPoint(x, y);
+    console.log(hole);
+    startCenterX = (hole.offsetLeft+hole.offsetWidth)/2;
+    startCenterY = (hole.offsetTop+hole.offsetHeight)/2;
+    canvas.style.display ="";
+    canvas.beginPath();
+    canvas.moveTo(startCenterX,startCenterY);
+    canvas.lineTo(endCenterX,endCenterY);
+    canvas.stroke();
 }
