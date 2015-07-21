@@ -1,7 +1,7 @@
 var mousePressed = false;
 var lastX, lastY;
 var ctx;
-var startCenterX,startCenterY, endCenterX, endCenterY;
+var startCenterX, startCenterY, endCenterX, endCenterY;
 function InitThis() {
     ctx = document.getElementById('myCanvas').getContext("2d");
 
@@ -38,7 +38,8 @@ function Draw(x, y, isDown) {
         ctx.closePath();
         ctx.stroke();
     }
-    lastX = x; lastY = y;
+    lastX = x;
+    lastY = y;
 }
 
 function clearArea() {
@@ -47,29 +48,29 @@ function clearArea() {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
-function findStartHole(x, y){
-    var canvas = document.elementFromPoint(x,y);
-    canvas.style.display ="none";
-
+function findStartHole(x, y) {
+    var canvas = document.elementFromPoint(x, y);
+    canvas.style.display = "none";
     var hole = document.elementFromPoint(x, y);
     console.log(hole);
-    startCenterX = hole.offsetLeft-(hole.offsetWidth/2);
-    startCenterY = hole.offsetTop-(hole.offsetHeight/2);
-    canvas.style.display ="";
+    startCenterX = hole.offsetLeft + (hole.offsetWidth / 5);
+    startCenterY = hole.offsetTop + (hole.offsetHeight / 5);
+    canvas.style.display = "";
 }
-function findEndHole(x, y){
+function findEndHole(x, y) {
     clearArea();
-    var canvas = document.elementFromPoint(x,y);
-    canvas.style.display ="none";
+    var canvas = document.elementFromPoint(x, y);
+    canvas.style.display = "none";
     var hole = document.elementFromPoint(x, y);
     console.log(hole);
-    endCenterX = hole.offsetLeft+(hole.offsetWidth/2);
-    endCenterY = hole.offsetTop+(hole.offsetHeight/2);
-    canvas.style.display ="";
+    endCenterX = hole.offsetLeft + (hole.offsetWidth / 5);
+    endCenterY = hole.offsetTop + (hole.offsetHeight / 5);
+
+    canvas.style.display = "";
     ctx = document.getElementById('myCanvas').getContext("2d");
     ctx.beginPath();
-    ctx.moveTo(startCenterX,startCenterY);
-    ctx.lineTo(endCenterX,endCenterY);
+    ctx.moveTo(startCenterX, startCenterY);
+    ctx.lineTo(endCenterX, endCenterY);
     ctx.closePath();
     ctx.stroke();
 }
