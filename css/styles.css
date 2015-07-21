@@ -21,6 +21,7 @@ body {
   height: 1px;
   display: block;
 }
+
 .minusbar{
   background-color: blue;
   width: inherit;
@@ -115,4 +116,14 @@ body {
   height: 6px;
   float: left;
   margin: 0 12px 15px 7px;
+}
+
+.propertytable{
+  width: inherit;
+  height: inherit;
+}
+
+.resulttable{
+  width: inherit;
+  height: inherit;
 }
