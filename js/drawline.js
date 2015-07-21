@@ -53,21 +53,23 @@ function findStartHole(x, y){
 
     var hole = document.elementFromPoint(x, y);
     console.log(hole);
-    startCenterX = (hole.offsetLeft+hole.offsetWidth)/2;
-    startCenterY = (hole.offsetTop+hole.offsetHeight)/2;
+    startCenterX = hole.offsetLeft-(hole.offsetWidth/2);
+    startCenterY = hole.offsetTop-(hole.offsetHeight/2);
     canvas.style.display ="";
 }
 function findEndHole(x, y){
+    clearArea();
     var canvas = document.elementFromPoint(x,y);
     canvas.style.display ="none";
-
     var hole = document.elementFromPoint(x, y);
     console.log(hole);
-    startCenterX = (hole.offsetLeft+hole.offsetWidth)/2;
-    startCenterY = (hole.offsetTop+hole.offsetHeight)/2;
+    endCenterX = hole.offsetLeft+(hole.offsetWidth/2);
+    endCenterY = hole.offsetTop+(hole.offsetHeight/2);
     canvas.style.display ="";
-    canvas.beginPath();
-    canvas.moveTo(startCenterX,startCenterY);
-    canvas.lineTo(endCenterX,endCenterY);
-    canvas.stroke();
+    ctx = document.getElementById('myCanvas').getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(startCenterX,startCenterY);
+    ctx.lineTo(endCenterX,endCenterY);
+    ctx.closePath();
+    ctx.stroke();
 }
