@@ -6,9 +6,11 @@
 function show() {
     // Use the identity matrix while clearing the canvas
     var oh =  $('#selChapter').val();
-    alert(oh);
-    if(oh == ch1) {
 
+    if(oh == 'ch1') {
+        var a = document.getElementById('guide1');
+        a.style.display = "block";
     }
+
 }
 
