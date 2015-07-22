@@ -9,31 +9,69 @@ function doFirst(){
 	 component.addEventListener("drop",dropped,false);
  }
  function startDrag(e){
-	//e.dataTransfer.setData('Text',code);
  }
- function dropped(e){
+ function dropped(e) {
 	 e.preventDefault();
 	 canvas = document.getElementById('myCanvas');
 	 canvas.style.display = "none";
-	 var hole = document.elementFromPoint(e.clientX+15, e.clientY+18);
-	 console.log(hole);
-	 //hole.style.position ='absolute';
-	 if (hole.className == "mhole" || hole.className == "hole") {
-		 x = hole.offsetLeft + (hole.offsetWidth / 10);
-		 y = hole.offsetTop + (hole.offsetHeight / 10);
-		 //hole.innerHTML = e.dataTransfer.getData('Text');
-	 }else if(hole.className == "centerRect") {
-		 x = hole.offsetLeft - hole.offsetWidth;
-		 y = hole.offsetTop - hole.offsetHeight;
-		 //hole.innerHTML = e.dataTransfer.getData('Text');
+
+	 var hole2 = document.elementFromPoint(e.clientX + 16, e.clientY + 18);
+	 if (hole2.className == "centerRect") {
+		 hole2 = hole2.parentNode;
 	 }
-	 else{
-		 return;
+	 if (hole2.className == "hole") {
+		 var hole1 = hole2.previousSibling.previousSibling;
+	 } else if (hole2.className == "mhole") {
+		 if (hole2.id.charAt(6) == "_") {
+			 prevId = Number(hole2.id.charAt(5)) - 1;
+			 if (prevId == 0) {
+				 var hole1 = null;
+			 } else {
+				 prevId = hole2.id.replace(hole2.id.charAt(5), String(prevId));
+				 var hole1 = document.getElementById(prevId);
+			 }
+		 } else {
+			 prevId = Number(hole2.id.substring(6, 7)) - 1;
+			 console.log("prevId:");
+			 console.log(typeof(prevId));
+			 console.log(prevId);
+			 if(prevId<0){
+				 prevId = hole2.id.substring(0, 5)+"9"+hole2.id.substring(7);
+			 }else if(prevId==0){
+				 prevId = hole2.id.substring(0, 5)+"10"+hole2.id.substring(7);
+			 }
+			 else{
+				 prevId = hole2.id.replace(hole2.id.substring(6, 7), String(prevId));
+			 }
+			 var hole1 = document.getElementById(prevId);
+
+
+		 }
 	 }
-	 canvas.style.display = "";
-	 var ctx = canvas.getContext("2d");
-	 var catImage = new Image();
-	 catImage.src = "images/led.png";
-	 ctx.drawImage(catImage, x-34 , y-36,40,36);
+
+	 if (hole1 != null) {
+		 if (hole2.className == "mhole" || hole2.className == "hole") {
+			 if (hole1.className == "mhole" || hole1.className == "hole") {
+				 x = hole2.offsetLeft + (hole2.offsetWidth / 10);
+				 y = hole2.offsetTop + (hole2.offsetHeight / 10);
+				 canvas.style.display = "";
+				 var ctx = canvas.getContext("2d");
+				 var catImage = new Image();
+				 catImage.src = "images/led.png";
+				 ctx.drawImage(catImage, x - 34, y - 36, 42, 36);
+			 } else {
+				 canvas.style.display = "";
+			 }
+		 } else {
+			 canvas.style.display = "";
+		 }
+	 } else {
+		 canvas.style.display = "";
+	 }
+	 console.log("hole1:");
+	 console.log(hole1);
+	 console.log("hole2:");
+	 console.log(hole2);
  }
- window.addEventListener("load",doFirst,false);
+
+window.addEventListener("load", doFirst, false);
