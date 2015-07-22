@@ -1711,21 +1711,12 @@
 
                 Chapter : <select id="selChapter" onchange="selChap(); return false;">
                     <option value="noSel">장 선택</option>
-                    <option value="ch1">1장</option>
                     <option value="ch2">2장</option>
                     <option value="ch3">3장</option>
                     <option value="ch4">4장</option>
                     <option value="ch5">5장</option>
                     <option value="ch6">6장</option>
-                </select>
-
-                <select id="ch1" style="display: none" onchange="show1(); return false;">
-                    <option value="noSel">문제</option>
-                    <option value="q1">1_1</option>
-                    <option value="q2">1_2</option>
-                    <option value="q3">1_3</option>
-                    <option value="q4">1_4</option>
-                    <option value="q5">1_5</option>
+                    <option value="ch7">7장</option>
                 </select>
 
                 <select id="ch2" style="display: none" onchange="show2(); return false;">
@@ -1735,9 +1726,10 @@
                     <option value="q3">2_3</option>
                     <option value="q4">2_4</option>
                     <option value="q5">2_5</option>
+                    <option value="q6">2_6</option>
                 </select>
 
-                <select id="ch3" style="display: none">
+                <select id="ch3" style="display: none" onchange="show3(); return false;">
                     <option value="noSel">문제</option>
                     <option value="q1">3_1</option>
                     <option value="q2">3_2</option>
@@ -1773,6 +1765,15 @@
                     <option value="q5">6_5</option>
                 </select>
 
+                <select id="ch7" style="display: none">
+                    <option value="noSel">문제</option>
+                    <option value="q1">7_1</option>
+                    <option value="q2">7_2</option>
+                    <option value="q3">7_3</option>
+                    <option value="q4">7_4</option>
+                    <option value="q5">7_5</option>
+                </select>
+
                 <!--<p> <button id = "show" onclick="show();return false;">show</button></p>-->
 
             </div>
@@ -1780,17 +1781,18 @@
         <div class="panel panel-default">
             <div class="panel-heading">Guide</div>
             <div class="panel-body">Guide.<p></p>
-                <img id="1_1" src="images/7404.jpg" width="407" style="display: none">
-                <img id="1_2" src="images/7408.png" width="407" style="display: none">
-                <img id="1_3" src="images/7432.png" width="407" style="display: none">
-                <img id="1_4" src="images/led.png" width="407" style="display: none">
-                <img id="1_5" src="images/7404.jpg" width="407" style="display: none">
+                <img id="2_1" src="images/guide/2_1.PNG" width="407" style="display: none">
+                <img id="2_2" src="images/guide/2_2.PNG" width="407" style="display: none">
+                <img id="2_3" src="images/guide/2_3.PNG" width="407" style="display: none">
+                <img id="2_4" src="images/guide/2_4.PNG" width="407" style="display: none">
+                <img id="2_5" src="images/guide/2_5.PNG" width="407" style="display: none">
+                <img id="2_6" src="images/guide/2_6.PNG" width="407" style="display: none">
 
-                <img id="2_1" src="images/7404.jpg" width="407" style="display: none">
-                <img id="2_2" src="images/7408.png" width="407" style="display: none">
-                <img id="2_3" src="images/7432.png" width="407" style="display: none">
-                <img id="2_4" src="images/led.png" width="407" style="display: none">
-                <img id="2_5" src="images/7404.jpg" width="407" style="display: none">
+                <img id="3_1" src="images/guide/2_1.PNG" width="407" style="display: none">
+                <img id="3_2" src="images/guide/2_2.PNG" width="407" style="display: none">
+                <img id="3_3" src="images/guide/2_3.PNG" width="407" style="display: none">
+                <img id="3_4" src="images/guide/2_4.PNG" width="407" style="display: none">
+                <img id="3_5" src="images/guide/2_5.PNG" width="407" style="display: none">
 
             </div>
         </div>
