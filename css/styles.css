@@ -1,4 +1,3 @@
-
 body {
   padding-top: 70px;
 }
@@ -118,12 +117,26 @@ body {
   margin: 0 12px 15px 7px;
 }
 
-.propertytable{
+table{
   width: inherit;
   height: inherit;
+  text-align: center;
+  display: block;
+  border: 1px solid lightgray;
+  border-collapse: collapse;
 }
 
-.resulttable{
-  width: inherit;
-  height: inherit;
+tr{
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+  width: 100%;
 }
+
+td{
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+  width: inherit;
+}
+
+
+
