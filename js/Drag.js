@@ -1,4 +1,5 @@
-var tmp;
+var canvas;
+var x, y
 function doFirst(){
 	mypic = document.getElementById('led');
 	mypic.addEventListener("dragstart",startDrag,false);
@@ -8,28 +9,31 @@ function doFirst(){
 	 component.addEventListener("drop",dropped,false);
  }
  function startDrag(e){
-	var code = '<img id="led" src="images/led.png" width="36px">';
-	e.dataTransfer.setData('images',code);
+	//e.dataTransfer.setData('Text',code);
  }
  function dropped(e){
 	 e.preventDefault();
-	 tmp = document.getElementById('myCanvas');
-	 tmp.style.display = "none";
-	 var hole = document.elementFromPoint(e.clientX, e.clientY);
+	 canvas = document.getElementById('myCanvas');
+	 canvas.style.display = "none";
+	 var hole = document.elementFromPoint(e.clientX+15, e.clientY+18);
 	 console.log(hole);
-	 hole.style.position ='absolute';
+	 //hole.style.position ='absolute';
 	 if (hole.className == "mhole" || hole.className == "hole") {
-		 hole.style.top = e.clientX;
-		 hole.style.left = e.clientY;
-		 hole.innerHTML = e.dataTransfer.getData('images');
+		 x = hole.offsetLeft + (hole.offsetWidth / 10);
+		 y = hole.offsetTop + (hole.offsetHeight / 10);
+		 //hole.innerHTML = e.dataTransfer.getData('Text');
 	 }else if(hole.className == "centerRect") {
-		 hole.style.top = e.clientX;
-		 hole.style.left = e.clientY;
-		 hole.innerHTML = e.dataTransfer.getData('images');
+		 x = hole.offsetLeft - hole.offsetWidth;
+		 y = hole.offsetTop - hole.offsetHeight;
+		 //hole.innerHTML = e.dataTransfer.getData('Text');
 	 }
 	 else{
 		 return;
 	 }
-	 tmp.style.display = "";
+	 canvas.style.display = "";
+	 var ctx = canvas.getContext("2d");
+	 var catImage = new Image();
+	 catImage.src = "images/led.png";
+	 ctx.drawImage(catImage, x-34 , y-36,40,36);
  }
  window.addEventListener("load",doFirst,false);
