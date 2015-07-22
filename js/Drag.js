@@ -9,7 +9,7 @@ function doFirst(){
  }
  function startDrag(e){
 	var code = '<img id="led" src="images/led.png" width="36px">';
-	e.dataTransfer.setData('Text',code);
+	e.dataTransfer.setData('images',code);
  }
  function dropped(e){
 	 e.preventDefault();
@@ -18,9 +18,18 @@ function doFirst(){
 	 var hole = document.elementFromPoint(e.clientX, e.clientY);
 	 console.log(hole);
 	 hole.style.position ='absolute';
-	 hole.style.top = e.clientY + document.body.scrollTop;
-	 hole.style.left = e.clientX + document.body.scrollLeft;
-	 hole.innerHTML = e.dataTransfer.getData('Text');
+	 if (hole.className == "mhole" || hole.className == "hole") {
+		 hole.style.top = e.clientX;
+		 hole.style.left = e.clientY;
+		 hole.innerHTML = e.dataTransfer.getData('images');
+	 }else if(hole.className == "centerRect") {
+		 hole.style.top = e.clientX;
+		 hole.style.left = e.clientY;
+		 hole.innerHTML = e.dataTransfer.getData('images');
+	 }
+	 else{
+		 return;
+	 }
 	 tmp.style.display = "";
  }
  window.addEventListener("load",doFirst,false);
