@@ -11,6 +11,7 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/Drag.js"></script>
     <script type="text/javascript" src="js/drawline.js"></script>
+    <script type="text/javascript" src="js/guide.js"></script>
     <script type="text/javascript" src="js/loadcanvas.js"></script>
     <script type="text/javascript" src="js/checkOffset.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -1695,6 +1696,8 @@
         </div>
     </div>
     <!--/center-->
+
+
     <!--right-->
     <div class="col-sm-3">
         <div class="panel panel-default">
@@ -1702,10 +1705,30 @@
             <div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
                 Aliquam in felis sit amet augue.
             </div>
-
         </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Chapter</div>
 
-    </div>
+            <div class="panel-body">Select Chapter.<p></p>
+
+                Chapter : <select id="selChapter">
+                    <option value="ch1" selected="selected">1장</option>
+                    <option value="ch2">2장</option>
+                    <option value="ch3">3장</option>
+                    <option value="ch4">4장</option>
+                    <option value="ch5">5장</option>
+                    <option value="ch6">6장</option>
+                </select>
+                <button id = "show" onclick="show();return false;">show</button>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Guide</div>
+            <div class="panel-body">Guide.<p></p>
+
+            </div>
+        </div>
+        </div>
     <!--/right-->
 
 </div>
