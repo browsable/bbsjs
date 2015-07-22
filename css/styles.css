@@ -117,26 +117,21 @@ body {
   margin: 0 12px 15px 7px;
 }
 
-table{
-  width: inherit;
-  height: inherit;
-  text-align: center;
-  display: block;
-  border: 1px solid lightgray;
-  border-collapse: collapse;
-}
-
-tr{
+table.properties, table.results{
   border: 1px solid lightgray;
   border-collapse: collapse;
   width: 100%;
 }
 
-td{
+table.properties td, table.results td{
   border: 1px solid lightgray;
-  border-collapse: collapse;
-  width: inherit;
+  width: 50%;
+  padding:10px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  text-align: center;
 }
-
 
 
