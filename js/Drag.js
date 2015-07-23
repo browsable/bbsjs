@@ -3,17 +3,27 @@ var log;
 var x, y;
 var filename;
 var holedistance;
+var led;
+var R_100, resistor2,resistor3;
+var targetId;
 
 function doFirst(){
-	mypic = document.getElementById('led');
-	mypic.addEventListener("dragstart",startDrag,false);
-	 component = document.getElementById('breadboard');
+	led = document.getElementById('led');
+	R_100 = document.getElementById('R_100');
+	led.addEventListener("dragstart",startDrag,false);
+	R_100.addEventListener("dragstart",startDrag,false);
+
+	 var component = document.getElementById('breadboard');
 	 component.addEventListener("dragenter",function(e){e.preventDefault();},false);
 	 component.addEventListener("dragover",function(e){e.preventDefault();},false);
 	 component.addEventListener("drop",dropped,false);
+
+ }
+ function getImageId(e){
+	// console.log(e.target.nodeName);
  }
  function startDrag(e){
-
+	 targetId =  e.target.id;
  }
 
  function dropped(e) {
@@ -81,14 +91,9 @@ function doFirst(){
 				 canvas.style.display = "";
 				 var ctx = canvas.getContext("2d");
 				 var catImage = new Image();
-				 switch(filename){
-					 case led:
-						 catImage.src = "images/components/led.png";
-						 break;
-					 case Resistance:
-						 catImage.src = "images/components/Resistance.png";
-						 break;
-				 }
+
+				 catImage.src = "images/components/"+targetId+".png"
+
 
 				 ctx.drawImage(catImage, x - 34, y - 36, 42, 36);
 			 } else {
