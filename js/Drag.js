@@ -4,7 +4,7 @@ var imageX, imageY;
 var filename;
 var holedistance;
 var led;
-var R_100, R_200, R_330, R_1000, R_3300, R_4700, R_10000, R_100000;
+var R_100, R_220, R_330, R_1000, R_3300, R_4700, R_10000, R_100000;
 var targetId;
 var imageArray = new Array;
 var imagexyArray = new Array;
@@ -13,7 +13,7 @@ var imageindexPoint = 0;
 function doFirst(){
 	led = document.getElementById('led');
 	R_100 = document.getElementById('R_100');
-	R_200 = document.getElementById('R_200');
+	R_220 = document.getElementById('R_220');
 	R_330 = document.getElementById('R_330');
 	R_1000 = document.getElementById('R_1000');
 	R_3300 = document.getElementById('R_3300');
@@ -23,7 +23,7 @@ function doFirst(){
 
 	led.addEventListener("dragstart",startDrag,false);
 	R_100.addEventListener("dragstart",startDrag,false);
-	R_200.addEventListener("dragstart",startDrag,false);
+	R_220.addEventListener("dragstart",startDrag,false);
 	R_330.addEventListener("dragstart",startDrag,false);
 	R_1000.addEventListener("dragstart",startDrag,false);
 	R_3300.addEventListener("dragstart",startDrag,false);
