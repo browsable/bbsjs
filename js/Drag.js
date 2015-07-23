@@ -38,7 +38,17 @@ function doFirst(){
 			 if(prevId<0){
 				 prevId = hole2.id.substring(0, 5)+"9"+hole2.id.substring(7);
 			 }else if(prevId==0){
-				 prevId = hole2.id.substring(0, 5)+"10"+hole2.id.substring(7);
+				 switch(hole2.id.charAt(5)){
+					 case 1:
+						 prevId = hole2.id.substring(0, 5)+"10"+hole2.id.substring(7);
+						 break;
+					 case 2:
+						 prevId = hole2.id.substring(0, 5)+"20"+hole2.id.substring(7);
+						 break;
+					 case 3:
+						 prevId = hole2.id.substring(0, 5)+"30"+hole2.id.substring(7);
+						 break;
+				 }
 			 }
 			 else{
 				 prevId = hole2.id.replace(hole2.id.substring(6, 7), String(prevId));
