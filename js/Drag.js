@@ -101,8 +101,13 @@ function doFirst(){
 		 canvas.style.display = "";
 	 }
 
-	 $('#log').after("component :")
-	 $('#log').after(hole1.id)
+	 /*var logcat = document.createElement('logcat');
+	  var log = document.getElementById('log');
+	  logcat.("hi");
+	  logcat.width = 'inherit';
+	  logcat.height = 20;
+	  logcat.style.display='block';
+	  log.appendChild(logcat);*/
 	 console.log("hole1:");
 	 console.log(hole1);
 	 console.log("hole2:");

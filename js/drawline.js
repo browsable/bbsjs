@@ -2,6 +2,11 @@ var mousePressed = false;
 var lastX, lastY;
 var ctx;
 var startCenterX, startCenterY, endCenterX, endCenterY;
+var colorArray = new Array;
+var xyArray = new Array;
+var indexPoint = 0;
+var i;
+
 function InitThis() {
     ctx = document.getElementById('myCanvas').getContext("2d");
 
@@ -61,7 +66,20 @@ function findStartHole(x, y) {
         startCenterY = hole.offsetTop - hole.offsetHeight;
     }
     canvas.style.display = "";
-
+    xyArray[indexPoint] = new Array(4);
+    xyArray[indexPoint][0] = startCenterX;
+    xyArray[indexPoint][1] = startCenterY;
+    for(i = 0; i < indexPoint; i++)
+    {
+        ctx.beginPath();
+        ctx.strokeStyle = colorArray[i];
+        ctx.lineWidth = $('#selWidth').val();
+        ctx.lineJoin = "round";
+        ctx.moveTo(xyArray[i][0], xyArray[i][1]);
+        ctx.lineTo(xyArray[i][2], xyArray[i][3]);
+        ctx.closePath();
+        ctx.stroke();
+    }
 }
 function findEndHole(x, y) {
     clearArea();
@@ -90,4 +108,20 @@ function findEndHole(x, y) {
         ctx.closePath();
         ctx.stroke();
     }else canvas.style.display = "";
+    colorArray[indexPoint] = $('#selColor').val();
+    xyArray[indexPoint][2] = endCenterX;
+    xyArray[indexPoint][3] = endCenterY;
+    indexPoint++;
+    for(i = 0; i < indexPoint; i++)
+    {
+        ctx.beginPath();
+        ctx.strokeStyle = colorArray[i];
+        ctx.lineWidth = $('#selWidth').val();
+        ctx.lineJoin = "round";
+        ctx.moveTo(xyArray[i][0], xyArray[i][1]);
+        ctx.lineTo(xyArray[i][2], xyArray[i][3]);
+        ctx.closePath();
+        ctx.stroke();
+    }
+
 }
