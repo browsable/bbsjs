@@ -45,8 +45,8 @@ function doFirst(){
  function startDrag(e){
 	 targetId =  e.target.id;
 	 console.log(targetId);
-	 var componentId = document.getElementById('componentId');
-	 componentId.html(targetId);
+	 var componentId = document.getElementById("componentId");
+	 componentId.innerHTML = targetId;
  }
 
  function dropped(e) {
