@@ -9,5 +9,6 @@ function loadCanvas(id) {
     canvas.height = 580;
     canvas.style.zIndex   = 8;
     canvas.style.position = "absolute";
-    div.appendChild(canvas)
+    div.appendChild(canvas);
+
 }

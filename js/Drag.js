@@ -45,6 +45,8 @@ function doFirst(){
  function startDrag(e){
 	 targetId =  e.target.id;
 	 console.log(targetId);
+	 var componentId = document.getElementById('componentId');
+	 componentId.html(targetId);
  }
 
  function dropped(e) {
@@ -56,7 +58,7 @@ function doFirst(){
 		 hole2 = hole2.parentNode;
 	 }
 	 if (hole2.className == "hole") {
-		 var hole1 = hole2.previousSibling;
+		 var hole1 = hole2.previousSibling.previousSibling;
 	 } else if (hole2.className == "mhole") {
 		 if (hole2.id.charAt(6) == "_") {
 			 prevId = Number(hole2.id.charAt(5)) - 1;
