@@ -44,7 +44,7 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   width:inherit;
-  height:30vh;
+  height:34vh;
   border:1px solid blanchedalmond;
 }
 
@@ -132,4 +132,13 @@ table.properties td, table.results td{
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   text-align: center;
+}
+#log{
+  width: 100%;
+  height: 100px;
+  margin : 0;
+  display: block;
+  padding: 30px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

@@ -1,4 +1,5 @@
 var canvas;
+var log;
 var x, y
 function doFirst(){
 	mypic = document.getElementById('led');
@@ -14,7 +15,6 @@ function doFirst(){
 	 e.preventDefault();
 	 canvas = document.getElementById('myCanvas');
 	 canvas.style.display = "none";
-
 	 var hole2 = document.elementFromPoint(e.clientX + 16, e.clientY + 18);
 	 if (hole2.className == "centerRect") {
 		 hole2 = hole2.parentNode;
@@ -65,7 +65,6 @@ function doFirst(){
 			 }
 			 var hole1 = document.getElementById(prevId);
 
-
 		 }
 	 }
 
@@ -77,7 +76,7 @@ function doFirst(){
 				 canvas.style.display = "";
 				 var ctx = canvas.getContext("2d");
 				 var catImage = new Image();
-				 catImage.src = "images/led.png";
+				 catImage.src = "images/components/led.png";
 				 ctx.drawImage(catImage, x - 34, y - 36, 42, 36);
 			 } else {
 				 canvas.style.display = "";
@@ -88,6 +87,9 @@ function doFirst(){
 	 } else {
 		 canvas.style.display = "";
 	 }
+
+	 $('#log').after("component :")
+	 $('#log').after(hole1.id)
 	 console.log("hole1:");
 	 console.log(hole1);
 	 console.log("hole2:");
