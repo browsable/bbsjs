@@ -107,8 +107,8 @@ function doFirst(){
 	 if (hole1 != null) {
 		 if (hole2.className == "mhole" || hole2.className == "hole") {
 			 if (hole1.className == "mhole" || hole1.className == "hole") {
-				 x = hole2.offsetLeft + (hole2.offsetWidth / 10);
-				 y = hole2.offsetTop + (hole2.offsetHeight / 10);
+				 imageX = hole2.offsetLeft + (hole2.offsetWidth / 10) - 34;
+				 imageY = hole2.offsetTop + (hole2.offsetHeight / 10) - 36;
 				 canvas.style.display = "";
 				 var ctx = canvas.getContext("2d");
 				 var catImage = new Image();
