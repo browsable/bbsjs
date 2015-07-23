@@ -6,6 +6,9 @@ var holedistance;
 var led;
 var R_100, resistor2,resistor3;
 var targetId;
+var imageArray = new Array;
+var imagexyArray = new Array;
+var imageindexPoint = 0;
 
 function doFirst(){
 	led = document.getElementById('led');
@@ -92,10 +95,18 @@ function doFirst(){
 				 var ctx = canvas.getContext("2d");
 				 var catImage = new Image();
 
+
 				 catImage.src = "images/components/"+targetId+".png"
 
 
 				 ctx.drawImage(catImage, imageX, imageY, 42, 36);
+
+				 imageArray[imageindexPoint] = new Image();
+				 imageArray[imageindexPoint] = catImage.src;
+				 imagexyArray[imageindexPoint] = new Array(2);
+				 imagexyArray[imageindexPoint][0] = imageX;
+				 imagexyArray[imageindexPoint][1] = imageY;
+				 imageindexPoint += 1;
 
 			 } else {
 				 canvas.style.display = "";

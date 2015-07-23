@@ -15,7 +15,6 @@ function InitThis() {
         mousePressed = true;
         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
         findStartHole(e.clientX, e.clientY);
-
     });
 
     $('#myCanvas').mousemove(function (e) {
@@ -46,7 +45,7 @@ function Draw(x, y, isDown) {
     }
     lastX = x;
     lastY = y;
-    console.log(String(imageX));
+
 }
 
 function clearArea() {
@@ -59,6 +58,12 @@ function clearArea() {
         xyArray.pop();
     }
     indexPoint = 0;
+    for(i = 0; i <= imageindexPoint; i++)
+    {
+        imageArray.pop();
+        imagexyArray.pop();
+    }
+    imageindexPoint = 0;
 }
 
 function findStartHole(x, y) {
@@ -87,6 +92,16 @@ function findStartHole(x, y) {
         ctx.lineTo(xyArray[i][2], xyArray[i][3]);
         ctx.closePath();
         ctx.stroke();
+    }
+
+    for(i = 0; i < imageindexPoint; i++)
+    {
+        var catImage = new Image();
+        catImage.src = imageArray[i];
+        console.log(imageindexPoint);
+        console.log(String(imageX));
+        ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
+
     }
 }
 function findEndHole(x, y) {
@@ -131,6 +146,14 @@ function findEndHole(x, y) {
         ctx.lineTo(xyArray[i][2], xyArray[i][3]);
         ctx.closePath();
         ctx.stroke();
+    }
+    for(i = 0; i < imageindexPoint; i++)
+    {
+        var catImage = new Image();
+        catImage.src = imageArray[i];
+        console.log(imageindexPoint);
+        console.log(String(imageX));
+        ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
     }
 
 }
