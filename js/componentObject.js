@@ -1,9 +1,19 @@
 /**
  * Created by user on 2015-07-23.
  */
-var led = {
-    id: "led",
-    resistorValue: "0",
+var led_red_off = {
+    id: "led_red_off",
+    resistorValue: "160",
+};
+
+var led_yellow_off = {
+    id: "led_yellow_off",
+    resistorValue: "150",
+};
+
+var led_green_off = {
+    id: "led_green_off",
+    resistorValue: "100",
 };
 
 var R_100 = {

@@ -46,10 +46,18 @@ function doFirst(){
 	 var componentId = document.getElementById("componentId");
 	 var resistorValue  = document.getElementById("resistorValue");
 	 switch(targetId){
-		 case 'led':
-			 componentId.innerHTML = led.id;
-			 resistorValue.innerHTML = led.resistorValue;
+		 case 'led_red_off':
+			 componentId.innerHTML = led_red_off.id;
+			 resistorValue.innerHTML = led_red_off.resistorValue;
 		 	break;
+		 case 'led_yellow_off':
+			 componentId.innerHTML = led_yellow_off.id;
+			 resistorValue.innerHTML = led_yellow_off.resistorValue;
+			 break;
+		 case 'led_green_off':
+			 componentId.innerHTML = led_green_off.id;
+			 resistorValue.innerHTML = led_green_off.resistorValue;
+			 break;
 		 case 'R_100':
 			 componentId.innerHTML = R_100.id;
 			 resistorValue.innerHTML = R_100.resistorValue;
