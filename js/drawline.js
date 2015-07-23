@@ -8,6 +8,7 @@ var indexPoint = 0;
 var i;
 
 function InitThis() {
+
     ctx = document.getElementById('myCanvas').getContext("2d");
 
     $('#myCanvas').mousedown(function (e) {
@@ -45,6 +46,7 @@ function Draw(x, y, isDown) {
     }
     lastX = x;
     lastY = y;
+    console.log(String(imageX));
 }
 
 function clearArea() {
