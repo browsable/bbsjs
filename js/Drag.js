@@ -1,15 +1,15 @@
 var canvas;
 var log;
 var imageX, imageY;
-var filename;
-var holedistance;
 var targetId;
 var imageArray = new Array;
 var imagexyArray = new Array;
 var imageindexPoint = 0;
 
 function doFirst(){
-	var led = document.getElementById('led');
+	var led_red_off = document.getElementById('led_red_off');
+	var led_yellow_off = document.getElementById('led_yellow_off');
+	var led_green_off = document.getElementById('led_green_off');
 	var R_100 = document.getElementById('R_100');
 	var R_220 = document.getElementById('R_220');
 	var R_330 = document.getElementById('R_330');
@@ -19,7 +19,9 @@ function doFirst(){
 	var R_10000 = document.getElementById('R_10000');
 	var R_100000 = document.getElementById('R_100000');
 
-	led.addEventListener("dragstart",startDrag,false);
+	led_red_off.addEventListener("dragstart",startDrag,false);
+	led_yellow_off.addEventListener("dragstart",startDrag,false);
+	led_green_off.addEventListener("dragstart",startDrag,false);
 	R_100.addEventListener("dragstart",startDrag,false);
 	R_220.addEventListener("dragstart",startDrag,false);
 	R_330.addEventListener("dragstart",startDrag,false);
