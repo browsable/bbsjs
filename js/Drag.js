@@ -1,6 +1,6 @@
 var canvas;
 var log;
-var imageX, imageY;
+var imageX, imageY, imageZ;
 var filename;
 var holedistance;
 var led;
