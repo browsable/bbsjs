@@ -4,14 +4,44 @@
 var led = {
     id: "led",
     resistorValue: "0",
-    getInfo: function () {
-        return this.resistorValue;
-    }
 };
+
 var R_100 = {
     id: "R_100",
     resistorValue: "100",
-    getInfo: function () {
-        return this.resistorValue;
-    }
+};
+
+var R_220 = {
+    id: "R_220",
+    resistorValue: "220",
+};
+
+var R_330 = {
+    id: "R_330",
+    resistorValue: "330",
+};
+
+var R_1000 = {
+    id: "R_1000",
+    resistorValue: "1000",
+};
+
+var R_3300 = {
+    id: "R_3300",
+    resistorValue: "3300",
+};
+
+var R_4700 = {
+    id: "R_4700",
+    resistorValue: "4700",
+};
+
+var R_10000 = {
+    id: "R_10000",
+    resistorValue: "10000",
+};
+
+var R_100000 = {
+    id: "R_100000",
+    resistorValue: "100000",
 };

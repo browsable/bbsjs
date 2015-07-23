@@ -3,7 +3,6 @@ var log;
 var imageX, imageY;
 var filename;
 var holedistance;
-var R_220, R_330, R_1000, R_3300, R_4700, R_10000, R_100000;
 var targetId;
 var imageArray = new Array;
 var imagexyArray = new Array;
@@ -12,13 +11,13 @@ var imageindexPoint = 0;
 function doFirst(){
 	var led = document.getElementById('led');
 	var R_100 = document.getElementById('R_100');
-	R_220 = document.getElementById('R_220');
-	R_330 = document.getElementById('R_330');
-	R_1000 = document.getElementById('R_1000');
-	R_3300 = document.getElementById('R_3300');
-	R_4700 = document.getElementById('R_4700');
-	R_10000 = document.getElementById('R_10000');
-	R_100000 = document.getElementById('R_100000');
+	var R_220 = document.getElementById('R_220');
+	var R_330 = document.getElementById('R_330');
+	var R_1000 = document.getElementById('R_1000');
+	var R_3300 = document.getElementById('R_3300');
+	var R_4700 = document.getElementById('R_4700');
+	var R_10000 = document.getElementById('R_10000');
+	var R_100000 = document.getElementById('R_100000');
 
 	led.addEventListener("dragstart",startDrag,false);
 	R_100.addEventListener("dragstart",startDrag,false);
@@ -50,19 +49,40 @@ function doFirst(){
 		 case 'led':
 			 componentId.innerHTML = led.id;
 			 resistorValue.innerHTML = led.resistorValue;
-			 break;
+		 	break;
 		 case 'R_100':
 			 componentId.innerHTML = R_100.id;
 			 resistorValue.innerHTML = R_100.resistorValue;
 			 break;
+		 case 'R_220':
+			 componentId.innerHTML = R_220.id;
+			 resistorValue.innerHTML = R_220.resistorValue;
+			 break;
+		 case 'R_330':
+		 componentId.innerHTML = R_330.id;
+		 resistorValue.innerHTML = R_330.resistorValue;
+		 break;
+		 case 'R_1000':
+			 componentId.innerHTML = R_1000.id;
+			 resistorValue.innerHTML = R_1000.resistorValue;
+			 break;
+		 case 'R_3300':
+			 componentId.innerHTML = R_3300.id;
+			 resistorValue.innerHTML = R_3300.resistorValue;
+			 break;
+		 case 'R_4700':
+			 componentId.innerHTML = R_4700.id;
+			 resistorValue.innerHTML = R_4700.resistorValue;
+			 break;
+		 case 'R_10000':
+			 componentId.innerHTML = R_10000.id;
+			 resistorValue.innerHTML = R_10000.resistorValue;
+			 break;
+		 case 'R_100000':
+			 componentId.innerHTML = R_100000.id;
+			 resistorValue.innerHTML = R_100000.resistorValue;
+			 break;
 	 }
-
-	 console.log(led.id);
-	 console.log(led.resistorValue);
-	 console.log(R_100.id);
-	 console.log(R_100.resistorValue);
-
-
  }
 
  function dropped(e) {
