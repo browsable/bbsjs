@@ -1,6 +1,9 @@
 var canvas;
 var log;
-var x, y
+var x, y;
+var filename;
+var holedistance;
+
 function doFirst(){
 	mypic = document.getElementById('led');
 	mypic.addEventListener("dragstart",startDrag,false);
@@ -10,7 +13,9 @@ function doFirst(){
 	 component.addEventListener("drop",dropped,false);
  }
  function startDrag(e){
+
  }
+
  function dropped(e) {
 	 e.preventDefault();
 	 canvas = document.getElementById('myCanvas');
@@ -20,7 +25,7 @@ function doFirst(){
 		 hole2 = hole2.parentNode;
 	 }
 	 if (hole2.className == "hole") {
-		 var hole1 = hole2.previousSibling.previousSibling;
+		 var hole1 = hole2.previousSibling;
 	 } else if (hole2.className == "mhole") {
 		 if (hole2.id.charAt(6) == "_") {
 			 prevId = Number(hole2.id.charAt(5)) - 1;
@@ -76,7 +81,15 @@ function doFirst(){
 				 canvas.style.display = "";
 				 var ctx = canvas.getContext("2d");
 				 var catImage = new Image();
-				 catImage.src = "images/components/led.png";
+				 switch(filename){
+					 case led:
+						 catImage.src = "images/components/led.png";
+						 break;
+					 case Resistance:
+						 catImage.src = "images/components/Resistance.png";
+						 break;
+				 }
+
 				 ctx.drawImage(catImage, x - 34, y - 36, 42, 36);
 			 } else {
 				 canvas.style.display = "";
