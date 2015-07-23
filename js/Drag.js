@@ -126,6 +126,8 @@ function doFirst(){
 				 imagexyArray[imageindexPoint][0] = imageX;
 				 imagexyArray[imageindexPoint][1] = imageY;
 				 imageindexPoint += 1;
+				 latelyWorkArray[latelyWorkPoint] = 1;
+				 latelyWorkPoint++;
 
 			 } else {
 				 canvas.style.display = "";
