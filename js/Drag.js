@@ -36,9 +36,19 @@ function doFirst(){
 			 console.log(typeof(prevId));
 			 console.log(prevId);
 			 if(prevId<0){
-				 prevId = hole2.id.substring(0, 5)+"9"+hole2.id.substring(7);
+				 switch(Number(hole2.id.charAt(5))){
+					 case 1:
+						 prevId = hole2.id.substring(0, 5)+"9"+hole2.id.substring(7);
+						 break;
+					 case 2:
+						 prevId = hole2.id.substring(0, 5)+"19"+hole2.id.substring(7);
+						 break;
+					 case 3:
+						 prevId = hole2.id.substring(0, 5)+"29"+hole2.id.substring(7);
+						 break;
+				 }
 			 }else if(prevId==0){
-				 switch(hole2.id.charAt(5)){
+				 switch(Number(hole2.id.charAt(5))){
 					 case 1:
 						 prevId = hole2.id.substring(0, 5)+"10"+hole2.id.substring(7);
 						 break;
