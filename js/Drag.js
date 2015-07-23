@@ -4,7 +4,7 @@ var imageX, imageY;
 var filename;
 var holedistance;
 var led;
-var R_100, resistor2,resistor3;
+var R_100, R_200, R_330, R_1000, R_3300, R_4700, R_10000, R_100000;
 var targetId;
 var imageArray = new Array;
 var imagexyArray = new Array;
@@ -13,8 +13,24 @@ var imageindexPoint = 0;
 function doFirst(){
 	led = document.getElementById('led');
 	R_100 = document.getElementById('R_100');
+	R_200 = document.getElementById('R_200');
+	R_330 = document.getElementById('R_330');
+	R_1000 = document.getElementById('R_1000');
+	R_3300 = document.getElementById('R_3300');
+	R_4700 = document.getElementById('R_4700');
+	R_10000 = document.getElementById('R_10000');
+	R_100000 = document.getElementById('R_100000');
+
 	led.addEventListener("dragstart",startDrag,false);
 	R_100.addEventListener("dragstart",startDrag,false);
+	R_200.addEventListener("dragstart",startDrag,false);
+	R_330.addEventListener("dragstart",startDrag,false);
+	R_1000.addEventListener("dragstart",startDrag,false);
+	R_3300.addEventListener("dragstart",startDrag,false);
+	R_4700.addEventListener("dragstart",startDrag,false);
+	R_10000.addEventListener("dragstart",startDrag,false);
+	R_100000.addEventListener("dragstart",startDrag,false);
+
 
 	 var component = document.getElementById('breadboard');
 	 component.addEventListener("dragenter",function(e){e.preventDefault();},false);
@@ -25,8 +41,10 @@ function doFirst(){
  function getImageId(e){
 	// console.log(e.target.nodeName);
  }
+
  function startDrag(e){
 	 targetId =  e.target.id;
+	 console.log(targetId);
  }
 
  function dropped(e) {
@@ -89,12 +107,11 @@ function doFirst(){
 	 if (hole1 != null) {
 		 if (hole2.className == "mhole" || hole2.className == "hole") {
 			 if (hole1.className == "mhole" || hole1.className == "hole") {
-				 imageX = hole2.offsetLeft + (hole2.offsetWidth / 10) - 34;
-				 imageY = hole2.offsetTop + (hole2.offsetHeight / 10)  - 36;
+				 x = hole2.offsetLeft + (hole2.offsetWidth / 10);
+				 y = hole2.offsetTop + (hole2.offsetHeight / 10);
 				 canvas.style.display = "";
 				 var ctx = canvas.getContext("2d");
 				 var catImage = new Image();
-
 
 				 catImage.src = "images/components/"+targetId+".png"
 
