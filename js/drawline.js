@@ -51,6 +51,12 @@ function clearArea() {
     // Use the identity matrix while clearing the canvas
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    for(i = 0; i <= indexPoint; i++)
+    {
+        colorArray.pop();
+        xyArray.pop();
+    }
+    indexPoint = 0;
 }
 
 function findStartHole(x, y) {
@@ -82,7 +88,8 @@ function findStartHole(x, y) {
     }
 }
 function findEndHole(x, y) {
-    clearArea();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     var canvas = document.elementFromPoint(x, y);
     canvas.style.display = "none";
     var hole = document.elementFromPoint(x, y);
