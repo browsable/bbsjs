@@ -3,16 +3,15 @@ var log;
 var imageX, imageY;
 var filename;
 var holedistance;
-var led;
-var R_100, R_220, R_330, R_1000, R_3300, R_4700, R_10000, R_100000;
+var R_220, R_330, R_1000, R_3300, R_4700, R_10000, R_100000;
 var targetId;
 var imageArray = new Array;
 var imagexyArray = new Array;
 var imageindexPoint = 0;
 
 function doFirst(){
-	led = document.getElementById('led');
-	R_100 = document.getElementById('R_100');
+	var led = document.getElementById('led');
+	var R_100 = document.getElementById('R_100');
 	R_220 = document.getElementById('R_220');
 	R_330 = document.getElementById('R_330');
 	R_1000 = document.getElementById('R_1000');
@@ -46,7 +45,24 @@ function doFirst(){
 	 targetId =  e.target.id;
 	 console.log(targetId);
 	 var componentId = document.getElementById("componentId");
-	 componentId.innerHTML = targetId;
+	 var resistorValue  = document.getElementById("resistorValue");
+	 switch(targetId){
+		 case 'led':
+			 componentId.innerHTML = led.id;
+			 resistorValue.innerHTML = led.resistorValue;
+			 break;
+		 case 'R_100':
+			 componentId.innerHTML = R_100.id;
+			 resistorValue.innerHTML = R_100.resistorValue;
+			 break;
+	 }
+
+	 console.log(led.id);
+	 console.log(led.resistorValue);
+	 console.log(R_100.id);
+	 console.log(R_100.resistorValue);
+
+
  }
 
  function dropped(e) {
@@ -70,9 +86,6 @@ function doFirst(){
 			 }
 		 } else {
 			 prevId = Number(hole2.id.substring(6, 7)) - 1;
-			 console.log("prevId:");
-			 console.log(typeof(prevId));
-			 console.log(prevId);
 			 if(prevId<0){
 				 switch(Number(hole2.id.charAt(5))){
 					 case 1:
@@ -148,6 +161,7 @@ function doFirst(){
 	 console.log(hole1);
 	 console.log("hole2:");
 	 console.log(hole2);
+	 console.log(hole0_0.id);
  }
 
 window.addEventListener("load", doFirst, false);
