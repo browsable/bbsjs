@@ -1701,7 +1701,7 @@
         </div>
         <div class="panel panel-default" style="margin-top: 20px">
             <div class="panel-heading"><h5>logcat</h5></div>
-            <div class="panel-body">
+            <div class="panel-body" style="height: 90px">
                 <div id="log">
                 </div>
             </div>
@@ -1747,7 +1747,7 @@
                     <option value="3_5">3_5</option>
                 </select>
 
-                <select id="ch4" style="display: none">
+                <select id="ch4" style="display: none" onchange="show4(); return false;">
                     <option value="noSel">문제</option>
                     <option value="4_1">4_1</option>
                     <option value="4_25_1">4_2</option>
@@ -1756,7 +1756,7 @@
                     <option value="4_5">4_5</option>
                 </select>
 
-                <select id="ch5" style="display: none">
+                <select id="ch5" style="display: none" onchange="show5(); return false;">
                     <option value="noSel">문제</option>
                     <option value="5_1">5_1</option>
                     <option value="5_2">5_2</option>
@@ -1765,7 +1765,7 @@
                     <option value="5_5">5_5</option>
                 </select>
 
-                <select id="ch6" style="display: none">
+                <select id="ch6" style="display: none" onchange="show6(); return false;">
                     <option value="noSel">문제</option>
                     <option value="6_1">6_1</option>
                     <option value="6_2">6_2</option>
@@ -1774,7 +1774,7 @@
                     <option value="6_5">6_5</option>
                 </select>
 
-                <select id="ch7" style="display: none">
+                <select id="ch7" style="display: none" onchange="show7(); return false;">
                     <option value="noSel">문제</option>
                     <option value="7_1">7_1</option>
                     <option value="7_2">7_2</option>
@@ -1787,10 +1787,16 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">Guide</div>
-            <div class="panel-body">Guide.<p></p>
+            <div class="panel-body">Circuit Diagram.<br>
                 <div id = "imgGuide">
 
-                </div>3_1
+                </div>
+
+                <br>Guide Description.
+                <div id = "txtGuide">
+
+                </div>
+
             </div>
         </div>
     </div>
