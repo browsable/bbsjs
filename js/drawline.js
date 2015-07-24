@@ -183,7 +183,9 @@ function findEndHole(x, y) {
         ctx.lineTo(endCenterX, endCenterY);
         ctx.closePath();
         ctx.stroke();
-    }else canvas.style.display = "";
+    }else{
+        canvas.style.display = "";
+    }
     colorArray[indexPoint] = $('#selColor').val();
     xyArray[indexPoint][2] = endCenterX;
     xyArray[indexPoint][3] = endCenterY;
