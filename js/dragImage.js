@@ -26,7 +26,10 @@ function doFirst(){
 	var R_4700 = document.getElementById('R_4700');
 	var R_10000 = document.getElementById('R_10000');
 	var R_100000 = document.getElementById('R_100000');
-	var Current = document.getElementById('Current');
+	var Current_Left = document.getElementById('Current_Left');
+	var Current_Right = document.getElementById('Current_Right');
+	var Voltage_Left = document.getElementById('Voltage_Left');
+	var Voltage_Right = document.getElementById('Voltage_Right');
 
 	led_red_off.addEventListener("dragstart",startDrag,false);
 	led_yellow_off.addEventListener("dragstart",startDrag,false);
@@ -45,7 +48,10 @@ function doFirst(){
 	R_4700.addEventListener("dragstart",startDrag,false);
 	R_10000.addEventListener("dragstart",startDrag,false);
 	R_100000.addEventListener("dragstart",startDrag,false);
-	Current.addEventListener("dragstart",startDrag,false);
+	Current_Left.addEventListener("dragstart",startDrag,false);
+	Current_Right.addEventListener("dragstart",startDrag,false);
+	Voltage_Left.addEventListener("dragstart",startDrag,false);
+	Voltage_Right.addEventListener("dragstart",startDrag,false);
 
 	 var component = document.getElementById('breadboard');
 	 component.addEventListener("dragenter",function(e){e.preventDefault();},false);
@@ -131,9 +137,21 @@ function doFirst(){
 			 componentId.innerHTML = R_100000.id;
 			 resistorValue.innerHTML = R_100000.resistorValue;
 			 break;
-		 case 'Current':
-			 componentId.innerHTML = Current.id;
-			 resistorValue.innerHTML = Current.resistorValue;
+		 case 'Current_Left':
+			 componentId.innerHTML = Current_Left.id;
+			 resistorValue.innerHTML = Current_Left.resistorValue;
+			 break;
+		 case 'Current_Right':
+			 componentId.innerHTML = Current_Right.id;
+			 resistorValue.innerHTML = Current_Right.resistorValue;
+			 break;
+		 case 'Voltage_Left':
+			 componentId.innerHTML = Voltage_Left.id;
+			 resistorValue.innerHTML = Voltage_Left.resistorValue;
+			 break;
+		 case 'Voltage_Right':
+			 componentId.innerHTML = Voltage_Right.id;
+			 resistorValue.innerHTML = Voltage_Right.resistorValue;
 			 break;
 	 }
  }
