@@ -51,7 +51,6 @@ function Draw(x, y, isDown) {
 
 }
 function cUndo() {
-
     if(latelyWorkArray[latelyWorkPoint -1] == 0)
     {
         colorArray.pop();
@@ -86,6 +85,7 @@ function cUndo() {
         console.log(String(imageX));
         ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
     }
+    startCenterX = startCenterY = endCenterY = endCenterX = 0;
 }
 
 function clearArea() {
@@ -105,8 +105,6 @@ function clearArea() {
     }
     imageindexPoint = 0;
     startCenterX = startCenterY = endCenterY = endCenterX = 0;
-
-
 }
 
 function findStartHole(x, y) {
@@ -143,8 +141,8 @@ function findStartHole(x, y) {
         console.log(imageindexPoint);
         console.log(String(imageX));
         ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
-
     }
+    startCenterX = startCenterY = 0;
 }
 function findEndHole(x, y) {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -157,31 +155,33 @@ function findEndHole(x, y) {
         endCenterX = hole.offsetLeft + (hole.offsetWidth / 10);
         endCenterY = hole.offsetTop + (hole.offsetHeight / 10);
         canvas.style.display = "";
-        ctx = document.getElementById('myCanvas').getContext("2d");
-        ctx.beginPath();
-        ctx.moveTo(startCenterX, startCenterY);
-        ctx.lineTo(endCenterX, endCenterY);
-        ctx.closePath();
-        ctx.stroke();
+       // ctx = document.getElementById('myCanvas').getContext("2d");
+      //  ctx.beginPath();
+       // ctx.moveTo(startCenterX, startCenterY);
+       // ctx.lineTo(endCenterX, endCenterY);
+      //  ctx.closePath();
+     //   ctx.stroke();
     }else if(hole.className == "centerRect") {
         endCenterX = hole.offsetLeft - hole.offsetWidth;
         endCenterY = hole.offsetTop - hole.offsetHeight;
         canvas.style.display = "";
-        ctx = document.getElementById('myCanvas').getContext("2d");
-        ctx.beginPath();
-        ctx.moveTo(startCenterX, startCenterY);
-        ctx.lineTo(endCenterX, endCenterY);
-        ctx.closePath();
-        ctx.stroke();
+      //  ctx = document.getElementById('myCanvas').getContext("2d");
+      //  ctx.beginPath();
+      //  ctx.moveTo(startCenterX, startCenterY);
+      //  ctx.lineTo(endCenterX, endCenterY);
+      //  ctx.closePath();
+      //  ctx.stroke();
     }else{
         canvas.style.display = "";
     }
-    colorArray[indexPoint] = $('#selColor').val();
-    xyArray[indexPoint][2] = endCenterX;
-    xyArray[indexPoint][3] = endCenterY;
-    indexPoint++;
-    latelyWorkArray[latelyWorkPoint] = 0;
-    latelyWorkPoint++;
+    if(xyArray[indexPoint][0] != 0 && xyArray[indexPoint][1] != 0) {
+        colorArray[indexPoint] = $('#selColor').val();
+        xyArray[indexPoint][2] = endCenterX;
+        xyArray[indexPoint][3] = endCenterY;
+        indexPoint++;
+        latelyWorkArray[latelyWorkPoint] = 0;
+        latelyWorkPoint++;
+    }
 
     for(i = 0; i < indexPoint; i++)
     {
