@@ -21,9 +21,19 @@ var R_100 = {
     resistorValue: "100",
 };
 
+var R_200 = {
+    id: "R_200",
+    resistorValue: "200",
+};
+
 var R_220 = {
     id: "R_220",
     resistorValue: "220",
+};
+
+var R_300 = {
+    id: "R_300",
+    resistorValue: "300",
 };
 
 var R_330 = {
@@ -31,9 +41,29 @@ var R_330 = {
     resistorValue: "330",
 };
 
+var R_470 = {
+    id: "R_470",
+    resistorValue: "470",
+};
+
+var R_560 = {
+    id: "R_560",
+    resistorValue: "560",
+};
+
 var R_1000 = {
     id: "R_1000",
     resistorValue: "1000",
+};
+
+var R_2000 = {
+    id: "R_2000",
+    resistorValue: "2000",
+};
+
+var R_3000 = {
+    id: "R_3000",
+    resistorValue: "3000",
 };
 
 var R_3300 = {
@@ -55,3 +85,8 @@ var R_100000 = {
     id: "R_100000",
     resistorValue: "100000",
 };
+
+var Current = {
+    id: "Current",
+    resistorValue: "0",
+}

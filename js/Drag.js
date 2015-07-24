@@ -11,26 +11,39 @@ function doFirst(){
 	var led_yellow_off = document.getElementById('led_yellow_off');
 	var led_green_off = document.getElementById('led_green_off');
 	var R_100 = document.getElementById('R_100');
+	var R_200 = document.getElementById('R_200');
 	var R_220 = document.getElementById('R_220');
+	var R_300 = document.getElementById('R_300');
 	var R_330 = document.getElementById('R_330');
+	var R_470 = document.getElementById('R_470');
+	var R_560 = document.getElementById('R_560');
 	var R_1000 = document.getElementById('R_1000');
+	var R_2000 = document.getElementById('R_2000');
+	var R_3000 = document.getElementById('R_3000');
 	var R_3300 = document.getElementById('R_3300');
 	var R_4700 = document.getElementById('R_4700');
 	var R_10000 = document.getElementById('R_10000');
 	var R_100000 = document.getElementById('R_100000');
+	var Current = document.getElementById('Current')
 
 	led_red_off.addEventListener("dragstart",startDrag,false);
 	led_yellow_off.addEventListener("dragstart",startDrag,false);
 	led_green_off.addEventListener("dragstart",startDrag,false);
 	R_100.addEventListener("dragstart",startDrag,false);
+	R_200.addEventListener("dragstart",startDrag,false);
 	R_220.addEventListener("dragstart",startDrag,false);
+	R_300.addEventListener("dragstart",startDrag,false);
 	R_330.addEventListener("dragstart",startDrag,false);
+	R_470.addEventListener("dragstart",startDrag,false);
+	R_560.addEventListener("dragstart",startDrag,false);
 	R_1000.addEventListener("dragstart",startDrag,false);
+	R_2000.addEventListener("dragstart",startDrag,false);
+	R_3000.addEventListener("dragstart",startDrag,false);
 	R_3300.addEventListener("dragstart",startDrag,false);
 	R_4700.addEventListener("dragstart",startDrag,false);
 	R_10000.addEventListener("dragstart",startDrag,false);
 	R_100000.addEventListener("dragstart",startDrag,false);
-
+	Current.addEventListener("dragstart",startDrag,false);
 
 	 var component = document.getElementById('breadboard');
 	 component.addEventListener("dragenter",function(e){e.preventDefault();},false);
@@ -64,17 +77,41 @@ function doFirst(){
 			 componentId.innerHTML = R_100.id;
 			 resistorValue.innerHTML = R_100.resistorValue;
 			 break;
+		 case 'R_200':
+			 componentId.innerHTML = R_200.id;
+			 resistorValue.innerHTML = R_200.resistorValue;
+			 break;
 		 case 'R_220':
 			 componentId.innerHTML = R_220.id;
 			 resistorValue.innerHTML = R_220.resistorValue;
 			 break;
+		 case 'R_300':
+			 componentId.innerHTML = R_300.id;
+			 resistorValue.innerHTML = R_300.resistorValue;
+			 break;
 		 case 'R_330':
-		 componentId.innerHTML = R_330.id;
-		 resistorValue.innerHTML = R_330.resistorValue;
+		 	componentId.innerHTML = R_330.id;
+			resistorValue.innerHTML = R_330.resistorValue;
 		 break;
+		 case 'R_470':
+			 componentId.innerHTML = R_470.id;
+			 resistorValue.innerHTML = R_470.resistorValue;
+			 break;
+		 case 'R_560':
+			 componentId.innerHTML = R_560.id;
+			 resistorValue.innerHTML = R_560.resistorValue;
+			 break;
 		 case 'R_1000':
 			 componentId.innerHTML = R_1000.id;
 			 resistorValue.innerHTML = R_1000.resistorValue;
+			 break;
+		 case 'R_2000':
+			 componentId.innerHTML = R_2000.id;
+			 resistorValue.innerHTML = R_2000.resistorValue;
+			 break;
+		 case 'R_3000':
+			 componentId.innerHTML = R_3000.id;
+			 resistorValue.innerHTML = R_3000.resistorValue;
 			 break;
 		 case 'R_3300':
 			 componentId.innerHTML = R_3300.id;
@@ -91,6 +128,10 @@ function doFirst(){
 		 case 'R_100000':
 			 componentId.innerHTML = R_100000.id;
 			 resistorValue.innerHTML = R_100000.resistorValue;
+			 break;
+		 case 'Current':
+			 componentId.innerHTML = Current.id;
+			 resistorValue.innerHTML = Current.resistorValue;
 			 break;
 	 }
  }
