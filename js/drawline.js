@@ -119,10 +119,16 @@ function findStartHole(x, y) {
         startCenterX = hole.offsetLeft - hole.offsetWidth;
         startCenterY = hole.offsetTop - hole.offsetHeight;
     }
+    else
+    {
+        startCenterX = undefined;
+        startCenterY = undefined;
+    }
     canvas.style.display = "";
     xyArray[indexPoint] = new Array(4);
     xyArray[indexPoint][0] = startCenterX;
     xyArray[indexPoint][1] = startCenterY;
+   /*
     for(i = 0; i < indexPoint; i++)
     {
         ctx.beginPath();
@@ -134,7 +140,7 @@ function findStartHole(x, y) {
         ctx.closePath();
         ctx.stroke();
     }
-
+    */
     for(i = 0; i < imageindexPoint; i++) {
         var catImage = new Image();
         catImage.src = imageArray[i];
@@ -142,7 +148,6 @@ function findStartHole(x, y) {
         console.log(String(imageX));
         ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
     }
-    startCenterX = startCenterY = 0;
 }
 function findEndHole(x, y) {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -172,6 +177,8 @@ function findEndHole(x, y) {
       //  ctx.closePath();
       //  ctx.stroke();
     }else{
+        endCenterX = undefined;
+        endCenterY = undefined;
         canvas.style.display = "";
     }
     if(xyArray[indexPoint][0] != 0 && xyArray[indexPoint][1] != 0) {
