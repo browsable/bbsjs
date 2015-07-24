@@ -5,6 +5,7 @@ var targetId;
 var imageArray = [];
 var imagexyArray = [];
 var imageindexPoint = 0;
+var selVoltageValue =0;
 
 
 window.addEventListener("load", doFirst, false);
@@ -260,12 +261,14 @@ function VIRSetting(hole1, hole2){
 
 	for(var childnode in hole1.parentNode.children){
 		if(childnode.charAt(0)=="m"){
-			console.log(eval(childnode).V);
+			eval(childnode).R += eval(targetId).resistorValue;
+			console.log(eval(childnode).R);
 		}
 	}
 	for(var childnode in hole2.parentNode.children){
 		if(childnode.charAt(0)=="m"){
-			console.log(eval(childnode).V);
+			eval(childnode).R += eval(targetId).resistorValue;
+			console.log(eval(childnode).R);
 		}
 	}
 	console.log("hole1:");
@@ -273,4 +276,20 @@ function VIRSetting(hole1, hole2){
 	console.log("hole2:");
 	console.log(hole2);
 
+}
+
+function setVoltage() {
+	selVoltageValue = $('#selVoltage').val();
+	var topplusline = document.getElementById('topplusline');
+	var bottomplusline = document.getElementById('bottomplusline');
+	for(var childnode in topplusline.children){
+		if(childnode.charAt(0)=="h"){
+			eval(childnode).V = Number(selVoltageValue);
+		}
+	}
+	for(var childnode in bottomplusline.children){
+		if(childnode.charAt(0)=="h"){
+			eval(childnode).V = Number(selVoltageValue);
+		}
+	}
 }
