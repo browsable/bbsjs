@@ -104,6 +104,9 @@ function clearArea() {
         imagexyArray.pop();
     }
     imageindexPoint = 0;
+    startCenterX = startCenterY = endCenterY = endCenterX = 0;
+
+
 }
 
 function findStartHole(x, y) {
