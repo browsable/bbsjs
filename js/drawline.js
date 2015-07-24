@@ -2,11 +2,11 @@ var mousePressed = false;
 var lastX, lastY;
 var ctx;
 var startCenterX, startCenterY, endCenterX, endCenterY;
-var colorArray = new Array;
-var xyArray = new Array;
+var colorArray = [];
+var xyArray = [];
 var indexPoint = 0;
-var cPushArray = new Array();
-var latelyWorkArray = new Array;
+var cPushArray = [];
+var latelyWorkArray = [];
 var latelyWorkPoint = 0;
 var cStep = -1;
 var i;
@@ -64,7 +64,7 @@ function cUndo() {
         cStep--;
         var canvasPic = new Image();
         canvasPic.src = cPushArray[cStep];
-        canvasPic.onload = function () { ctx.drawImage(canvasPic, 0, 0); }
+        canvasPic.onload = function () { ctx.drawImage(canvasPic, 0, 0); };
         if(latelyWorkArray[latelyWorkPoint -1] == 0)
         {
             colorArray.pop();

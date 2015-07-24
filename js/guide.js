@@ -120,35 +120,35 @@ function show3() {
     // Use the identity matrix while clearing the canvas
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch3').val();
-    imgnum="images/guide/" + qn + ".PNG"
+    imgnum="images/guide/" + qn + ".PNG";
     imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
 }
 function show4() {
     // Use the identity matrix while clearing the canvas
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch4').val();
-    imgnum="images/guide/" + qn + ".PNG"
+    imgnum="images/guide/" + qn + ".PNG";
     imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
 }
 function show5() {
     // Use the identity matrix while clearing the canvas
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch5').val();
-    imgnum="images/guide/" + qn + ".PNG"
+    imgnum="images/guide/" + qn + ".PNG";
     imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
 }
 function show6() {
     // Use the identity matrix while clearing the canvas
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch6').val();
-    imgnum="images/guide/" + qn + ".PNG"
+    imgnum="images/guide/" + qn + ".PNG";
     imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
 }
 function show7() {
     // Use the identity matrix while clearing the canvas
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch7').val();
-    imgnum="images/guide/" + qn + ".PNG"
+    imgnum="images/guide/" + qn + ".PNG";
     imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
 }
 
@@ -168,7 +168,7 @@ function loadXMLDoc(txtnum) {
         {
             document.getElementById("txtGuide").innerHTML=xmlhttp.responseText;
         }
-    }
+    };
     xmlhttp.open("GET","asset/txt/"+ txtnum +".txt",true);
     xmlhttp.send();
 }

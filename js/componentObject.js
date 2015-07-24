@@ -89,4 +89,4 @@ var R_100000 = {
 var Current = {
     id: "Current",
     resistorValue: "0",
-}
+};

@@ -607,7 +607,7 @@ var mhole5_f = {
     V: 0,
     I: 0,
     R: 0
-}
+};
 
 var mhole5_g = {
     id: "mhole5_g ",
@@ -678,7 +678,7 @@ var mhole6_f = {
     V: 0,
     I: 0,
     R: 0
-}
+};
 
 var mhole6_g = {
     id: "mhole6_g ",
@@ -840,7 +840,7 @@ var mhole8_i= {
     V: 0,
     I: 0,
     R: 0
-}
+};
 var mhole8_j= {
     id: "mhole8_j ",
     V : 0,
@@ -1186,7 +1186,7 @@ var mhole13_h = {
     V: 0,
     I: 0,
     R: 0
-}
+};
 
 var mhole13_i= {
     id: "mhole13_i ",
@@ -2667,7 +2667,7 @@ var hole2_23 = {
 var hole2_24 = {
     id: "hole2_24",
     V: 0
-}
+};
 var hole3_0 = {
     id: "hole3_0",
     V : 0

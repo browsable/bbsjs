@@ -2,8 +2,8 @@ var canvas;
 var log;
 var imageX, imageY;
 var targetId;
-var imageArray = new Array;
-var imagexyArray = new Array;
+var imageArray = [];
+var imagexyArray = [];
 var imageindexPoint = 0;
 
 
@@ -201,7 +201,7 @@ function doFirst(){
 				 var ctx = canvas.getContext("2d");
 				 var catImage = new Image();
 
-				 catImage.src = "images/components/"+targetId+".png"
+				 catImage.src = "images/components/"+targetId+".png";
 
 
 				 ctx.drawImage(catImage, imageX, imageY, 42, 36);
