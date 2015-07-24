@@ -26,7 +26,7 @@ function doFirst(){
 	var R_4700 = document.getElementById('R_4700');
 	var R_10000 = document.getElementById('R_10000');
 	var R_100000 = document.getElementById('R_100000');
-	var Current = document.getElementById('Current')
+	var Current = document.getElementById('Current');
 
 	led_red_off.addEventListener("dragstart",startDrag,false);
 	led_yellow_off.addEventListener("dragstart",startDrag,false);
@@ -242,15 +242,11 @@ function VIRSetting(hole1, hole2){
 
 	for(var childnode in hole1.parentNode.children){
 		if(childnode.charAt(0)=="m"){
-			//console.log(childnode.toString());
-			//var child = document.getElementsByClassName(childnode.toString());
 			console.log(eval(childnode).V);
 		}
 	}
 	for(var childnode in hole2.parentNode.children){
 		if(childnode.charAt(0)=="m"){
-			//console.log(childnode.toString());
-			//var child = document.getElementsByClassName(childnode.toString());
 			console.log(eval(childnode).V);
 		}
 	}
