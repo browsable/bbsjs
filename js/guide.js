@@ -59,7 +59,8 @@ function selChap() {
         a.style.display = "none";
         b.style.display = "none";
         c.style.display = "none";
-        d.style.display = "block";
+        d.style.display = "inline-block";
+
         e.style.display = "none";
         f.style.display = "none";
     }

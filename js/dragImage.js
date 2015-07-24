@@ -6,6 +6,8 @@ var imageArray = new Array;
 var imagexyArray = new Array;
 var imageindexPoint = 0;
 
+
+window.addEventListener("load", doFirst, false);
 function doFirst(){
 	var led_red_off = document.getElementById('led_red_off');
 	var led_yellow_off = document.getElementById('led_yellow_off');
@@ -230,11 +232,31 @@ function doFirst(){
 	  logcat.height = 20;
 	  logcat.style.display='block';
 	  log.appendChild(logcat);*/
-	 console.log("hole1:");
-	 console.log(hole1);
-	 console.log("hole2:");
-	 console.log(hole2);
-	 console.log(hole0_0.id);
+	 VIRSetting(hole1,hole2);
  }
 
-window.addEventListener("load", doFirst, false);
+function VIRSetting(hole1, hole2){
+
+	var hole1Parent =hole1.parentNode.children;
+	var hole2Parent =hole2.parentNode.children;
+
+	for(var childnode in hole1.parentNode.children){
+		if(childnode.charAt(0)=="m"){
+			//console.log(childnode.toString());
+			//var child = document.getElementsByClassName(childnode.toString());
+			console.log(eval(childnode).V);
+		}
+	}
+	for(var childnode in hole2.parentNode.children){
+		if(childnode.charAt(0)=="m"){
+			//console.log(childnode.toString());
+			//var child = document.getElementsByClassName(childnode.toString());
+			console.log(eval(childnode).V);
+		}
+	}
+	console.log("hole1:");
+	console.log(hole1);
+	console.log("hole2:");
+	console.log(hole2);
+
+}

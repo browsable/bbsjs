@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="js/Drag.js"></script>
+    <script type="text/javascript" src="js/dragImage.js"></script>
     <script type="text/javascript" src="js/componentObject.js"></script>
     <script type="text/javascript" src="js/holeObject.js"></script>
     <script type="text/javascript" src="js/drawline.js"></script>
@@ -380,7 +380,7 @@
                         <hr class="minusbar">
                     </div>
                     <div class="middlesection">
-                        <div class="verticalline">
+                        <div class="verticalline" id="top1">
                             <div class="mhole" id="mhole1_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -397,7 +397,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top2">
                             <div class="mhole" id="mhole2_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -414,7 +414,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top3">
                             <div class="mhole" id="mhole3_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -431,7 +431,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top4">
                             <div class="mhole" id="mhole4_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -448,7 +448,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top5">
                             <div class="mhole" id="mhole5_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -465,7 +465,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top6">
                             <div class="mhole" id="mhole6_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -482,7 +482,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top7">
                             <div class="mhole" id="mhole7_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -499,7 +499,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top8">
                             <div class="mhole" id="mhole8_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -516,7 +516,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top9">
                             <div class="mhole" id="mhole9_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -533,7 +533,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top10">
                             <div class="mhole" id="mhole10_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -550,7 +550,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top11">
                             <div class="mhole" id="mhole11_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -567,7 +567,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top12">
                             <div class="mhole" id="mhole12_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -584,7 +584,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top13">
                             <div class="mhole" id="mhole13_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -602,7 +602,7 @@
                             </div>
                         </div>
 
-                        <div class="verticalline">
+                        <div class="verticalline" id="top14">
                             <div class="mhole" id="mhole14_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -620,7 +620,7 @@
                             </div>
                         </div>
 
-                        <div class="verticalline">
+                        <div class="verticalline" id="top15">
                             <div class="mhole" id="mhole15_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -638,7 +638,7 @@
                             </div>
                         </div>
 
-                        <div class="verticalline">
+                        <div class="verticalline" id="top16">
                             <div class="mhole" id="mhole16_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -656,7 +656,7 @@
                             </div>
                         </div>
 
-                        <div class="verticalline">
+                        <div class="verticalline" id="top17">
                             <div class="mhole" id="mhole17_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -674,7 +674,7 @@
                             </div>
                         </div>
 
-                        <div class="verticalline">
+                        <div class="verticalline" id="top18">
                             <div class="mhole" id="mhole18_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -691,7 +691,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top19">
                             <div class="mhole" id="mhole19_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -708,7 +708,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top20">
                             <div class="mhole" id="mhole20_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -725,7 +725,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top21">
                             <div class="mhole" id="mhole21_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -742,7 +742,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top22">
                             <div class="mhole" id="mhole22_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -759,7 +759,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top23">
                             <div class="mhole" id="mhole23_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -776,7 +776,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top24">
                             <div class="mhole" id="mhole24_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -793,7 +793,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top25">
                             <div class="mhole" id="mhole25_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -810,7 +810,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top26">
                             <div class="mhole" id="mhole26_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -827,7 +827,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top27">
                             <div class="mhole" id="mhole27_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -844,7 +844,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top28">
                             <div class="mhole" id="mhole28_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -861,7 +861,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top29">
                             <div class="mhole" id="mhole29_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -878,7 +878,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top30">
                             <div class="mhole" id="mhole30_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -895,7 +895,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top31">
                             <div class="mhole" id="mhole31_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -912,7 +912,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top32">
                             <div class="mhole" id="mhole32_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -929,7 +929,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="top33">
                             <div class="mhole" id="mhole33_a">
                                 <div class="centerRect"></div>
                             </div>
@@ -948,7 +948,7 @@
                         </div>
                     </div>
                     <div class="middlesection">
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom1">
                             <div class="mhole" id="mhole1_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -965,7 +965,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom2">
                             <div class="mhole" id="mhole2_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -982,7 +982,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom3">
                             <div class="mhole" id="mhole3_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -999,7 +999,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom4">
                             <div class="mhole" id="mhole4_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1016,7 +1016,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom5">
                             <div class="mhole" id="mhole5_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1033,7 +1033,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom6">
                             <div class="mhole" id="mhole6_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1050,7 +1050,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom7">
                             <div class="mhole" id="mhole7_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1067,7 +1067,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom8">
                             <div class="mhole" id="mhole8_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1084,7 +1084,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom9">
                             <div class="mhole" id="mhole9_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1101,7 +1101,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom10">
                             <div class="mhole" id="mhole10_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1118,7 +1118,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom11">
                             <div class="mhole" id="mhole11_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1135,7 +1135,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom12">
                             <div class="mhole" id="mhole12_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1152,7 +1152,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom13">
                             <div class="mhole" id="mhole13_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1170,7 +1170,7 @@
                             </div>
                         </div>
 
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom14">
                             <div class="mhole" id="mhole14_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1188,7 +1188,7 @@
                             </div>
                         </div>
 
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom15">
                             <div class="mhole" id="mhole15_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1206,7 +1206,7 @@
                             </div>
                         </div>
 
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom16">
                             <div class="mhole" id="mhole16_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1224,7 +1224,7 @@
                             </div>
                         </div>
 
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom17">
                             <div class="mhole" id="mhole17_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1242,7 +1242,7 @@
                             </div>
                         </div>
 
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom18">
                             <div class="mhole" id="mhole18_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1259,7 +1259,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom19">
                             <div class="mhole" id="mhole19_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1276,7 +1276,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom20">
                             <div class="mhole" id="mhole20_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1293,7 +1293,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom21">
                             <div class="mhole" id="mhole21_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1310,7 +1310,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom22">
                             <div class="mhole" id="mhole22_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1327,7 +1327,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom23">
                             <div class="mhole" id="mhole23_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1344,7 +1344,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom24">
                             <div class="mhole" id="mhole24_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1361,7 +1361,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom25">
                             <div class="mhole" id="mhole25_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1378,7 +1378,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom26">
                             <div class="mhole" id="mhole26_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1395,7 +1395,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom27">
                             <div class="mhole" id="mhole27_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1412,7 +1412,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom28">
                             <div class="mhole" id="mhole28_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1429,7 +1429,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom29">
                             <div class="mhole" id="mhole29_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1446,7 +1446,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom30">
                             <div class="mhole" id="mhole30_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1463,7 +1463,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom31">
                             <div class="mhole" id="mhole31_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1480,7 +1480,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom32">
                             <div class="mhole" id="mhole32_f">
                                 <div class="centerRect"></div>
                             </div>
@@ -1497,7 +1497,7 @@
                                 <div class="centerRect"></div>
                             </div>
                         </div>
-                        <div class="verticalline">
+                        <div class="verticalline" id="bottom33">
                             <div class="mhole" id="mhole33_f">
                                 <div class="centerRect"></div>
                             </div>
