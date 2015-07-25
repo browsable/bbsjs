@@ -52,7 +52,7 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   width:inherit;
-  height:26vh;
+  height:28vh;
   border:1px solid lightgray;
 }
 #imgGuide{
@@ -60,7 +60,7 @@ body {
   overflow-x: hidden;
   text-align: center;
   width:inherit;
-  height:30vh;
+  height:28vh;
   border:1px solid lightgray;
 }
 
@@ -150,10 +150,12 @@ table.properties td, table.results td{
   text-align: center;
 }
 #log{
-  width: 100%;
-  height: 50px;
-  display: flex;
-  padding: 40px;
-  overflow-y: hidden;
+  overflow-y: scroll;
   overflow-x: hidden;
+  width:inherit;
+  height:14vh;
+  border:1px solid lightgray;
+  text-align: start;
+  padding: 10px;
+  display: block;
 }

@@ -8,11 +8,12 @@ var indexPoint = 0;
 var latelyWorkArray = [];
 var latelyWorkPoint = 0;
 var i;
-var startHole, endHole;
+var startHole;
+var curcuit;
 function InitThis() {
-
+    curcuit = new Circuit();
     ctx = document.getElementById('myCanvas').getContext("2d");
-
+    log = document.getElementById('log');
     $('#myCanvas').mousedown(function (e) {
         mousePressed = true;
         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
@@ -84,6 +85,10 @@ function cUndo() {
         ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
     }
     startCenterX = startCenterY = endCenterY = endCenterX = undefined;
+    printTime();
+    $("#log").append("Undo V,I,R Value");
+    $("#log").append(document.createElement('br'));
+    log.scrollTop = log.scrollHeight;
 }
 
 function clearArea() {
@@ -103,23 +108,35 @@ function clearArea() {
     }
     imageindexPoint = 0;
     startCenterX = startCenterY = endCenterY = endCenterX = undefined;
+    printTime();
+    $("#log").append("Clear Area, Init V,I,R Value");
+    $("#log").append(document.createElement('br'));
+    log.scrollTop = log.scrollHeight;
 }
 
 function findStartHole(x, y) {
     var canvas = document.elementFromPoint(x, y);
     canvas.style.display = "none";
     startHole = document.elementFromPoint(x, y);
-    console.log(startHole);
-    if (startHole.className == "mhole" || startHole.className == "hole") {
-        startCenterX = startHole.offsetLeft + (startHole.offsetWidth / 10);
-        startCenterY = startHole.offsetTop + (startHole.offsetHeight / 10);
-    }else if(startHole.className == "centerRect") {
-        startCenterX = startHole.offsetLeft - startHole.offsetWidth;
-        startCenterY = startHole.offsetTop - startHole.offsetHeight;
-    }else{
-        startCenterX = undefined;
-        startCenterY = undefined;
+    startCenterX = startHole.offsetLeft + (startHole.offsetWidth / 10);
+    startCenterY = startHole.offsetTop + (startHole.offsetHeight / 10);
+    switch(startHole.className){
+        case 'hole':
+            console.log(startHole.id.charAt(4));
+            break;
+        case 'mhole':
+            break;
+        case 'centerRect':
+            startHole = startHole.parentNode;
+            startCenterX = startHole.offsetLeft + (startHole.offsetWidth / 10);
+            startCenterY = startHole.offsetTop + (startHole.offsetHeight / 10);
+            break;
+        default :
+            startCenterX = undefined;
+            startCenterY = undefined;
+            break;
     }
+
     canvas.style.display = "";
     xyArray[indexPoint] = new Array(4);
     xyArray[indexPoint][0] = startCenterX;
@@ -137,20 +154,24 @@ function findEndHole(x, y) {
     var canvas = document.elementFromPoint(x, y);
     canvas.style.display = "none";
     var endHole = document.elementFromPoint(x, y);
-    console.log(endHole);
-    if (endHole.className == "mhole" || endHole.className == "hole") {
-        endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
-        endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
-        canvas.style.display = "";
-    }else if(endHole.className == "centerRect") {
-        endCenterX = endHole.offsetLeft - endHole.offsetWidth;
-        endCenterY = endHole.offsetTop - endHole.offsetHeight;
-        canvas.style.display = "";
-    }else{
-        endCenterX = undefined;
-        endCenterY = undefined;
-        canvas.style.display = "";
+    endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
+    endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
+    switch(endHole.className) {
+        case 'hole':
+            break;
+        case 'mhole':
+            break;
+        case 'centerRect':
+            endHole = endHole.parentNode;
+            endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
+            endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
+            break;
+        default :
+            endCenterX = undefined;
+            endCenterY = undefined;
+            break;
     }
+
     if(xyArray[indexPoint][0] != 0 && xyArray[indexPoint][1] != 0) {
         colorArray[indexPoint] = $('#selColor').val();
         xyArray[indexPoint][2] = endCenterX;
@@ -174,8 +195,13 @@ function findEndHole(x, y) {
     for(i = 0; i < imageindexPoint; i++) {
         var catImage = new Image();
         catImage.src = imageArray[i];
-        console.log(imageindexPoint);
-        console.log(String(imageX));
         ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
+    }
+
+    if(startCenterX!=undefined && startCenterY!=undefined && endCenterX!=undefined && endCenterY!=undefined) {
+        printTime();
+        $("#log").append("lineTo : '" + startHole.id + "' to '" + endHole.id+"'");
+        $("#log").append(document.createElement('br'));
+        log.scrollTop = log.scrollHeight;
     }
 }

@@ -244,13 +244,7 @@ function doFirst(){
 		 canvas.style.display = "";
 	 }
 
-	 /*var logcat = document.createElement('logcat');
-	  var log = document.getElementById('log');
-	  logcat.("hi");
-	  logcat.width = 'inherit';
-	  logcat.height = 20;
-	  logcat.style.display='block';
-	  log.appendChild(logcat);*/
+
 	 VIRSetting(hole1,hole2);
  }
 
@@ -271,17 +265,23 @@ function VIRSetting(hole1, hole2){
 			console.log(eval(childnode).R);
 		}
 	}
-	console.log("hole1:");
-	console.log(hole1);
-	console.log("hole2:");
-	console.log(hole2);
-
+	printTime();
+	if(targetId.charAt(0)=="l") {
+		$("#log").append("Component Name: '" + targetId.substring(0,7) + "', ");
+	}else{
+		$("#log").append("Component Name: '" + targetId + "', ");
+	}
+	$("#log").append("1st hole: '"+hole1.id +"', ");
+	$("#log").append("2nd Hole: '"+hole2.id +"' ");
+	$("#log").append(document.createElement('br'));
+	log.scrollTop = log.scrollHeight;
 }
 
 function setVoltage() {
 	selVoltageValue = $('#selVoltage').val();
 	var topplusline = document.getElementById('topplusline');
 	var bottomplusline = document.getElementById('bottomplusline');
+	var log = document.getElementById('log');
 	for(var childnode in topplusline.children){
 		if(childnode.charAt(0)=="h"){
 			eval(childnode).V = Number(selVoltageValue);
@@ -292,4 +292,23 @@ function setVoltage() {
 			eval(childnode).V = Number(selVoltageValue);
 		}
 	}
+	printTime();
+	$("#log").append("Power Supply Voltage Setting Complete: "+ String(selVoltageValue)+"V");
+	$("#log").append(document.createElement('br'));
+	log.scrollTop = log.scrollHeight;
+
+}
+
+function printTime() {
+	var now = new Date();
+	var nowTime = now.getFullYear() + "." + (now.getMonth()+1) + "-" + now.getDate() + " "+ now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + " / ";
+	$("#log").append(nowTime);
+	//setTimeout("printTime()",1000);
+}
+window.onload = function() {
+	var now = new Date();
+	var nowTime = now.getFullYear() + "." + (now.getMonth()+1) + "-" + now.getDate() + " "+ now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + " / ";
+	$("#log").append(nowTime);
+	$("#log").append("onload : Bread Board Simulation Start");
+	$("#log").append(document.createElement('br'));
 }

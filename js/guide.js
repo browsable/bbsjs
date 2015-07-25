@@ -112,7 +112,7 @@ function show2() {
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch2').val();
     imgnum="images/guide/" + qn + ".PNG";
-    imgGuide.innerHTML = "<img src=" + imgnum + " width='400' height='inherit' style='margin-top:10px'>";
+    imgGuide.innerHTML = "<img src=" + imgnum + " width='100%' height='100%'>";
     loadXMLDoc(qn);
 
 }
