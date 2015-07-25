@@ -8,10 +8,9 @@ var indexPoint = 0;
 var latelyWorkArray = [];
 var latelyWorkPoint = 0;
 var i;
-var startHole;
-var curcuit;
+var startHole, endHole;
 function InitThis() {
-    //curcuit = new Circuit();
+
     ctx = document.getElementById('myCanvas').getContext("2d");
     log = document.getElementById('log');
     $('#myCanvas').mousedown(function (e) {
@@ -122,7 +121,6 @@ function findStartHole(x, y) {
     startCenterY = startHole.offsetTop + (startHole.offsetHeight / 10);
     switch(startHole.className){
         case 'hole':
-            console.log(startHole.id.charAt(4));
             break;
         case 'mhole':
             break;
@@ -154,24 +152,20 @@ function findEndHole(x, y) {
     var canvas = document.elementFromPoint(x, y);
     canvas.style.display = "none";
     var endHole = document.elementFromPoint(x, y);
-    endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
-    endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
-    switch(endHole.className) {
-        case 'hole':
-            break;
-        case 'mhole':
-            break;
-        case 'centerRect':
-            endHole = endHole.parentNode;
-            endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
-            endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
-            break;
-        default :
-            endCenterX = undefined;
-            endCenterY = undefined;
-            break;
+    if (endHole.className == "mhole" || endHole.className == "hole") {
+        endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
+        endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
+        canvas.style.display = "";
+    }else if(endHole.className == "centerRect") {
+        endHole = endHole.parentNode;
+        endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
+        endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
+        canvas.style.display = "";
+    }else{
+        endCenterX = undefined;
+        endCenterY = undefined;
+        canvas.style.display = "";
     }
-
     if(xyArray[indexPoint][0] != 0 && xyArray[indexPoint][1] != 0) {
         colorArray[indexPoint] = $('#selColor').val();
         xyArray[indexPoint][2] = endCenterX;
