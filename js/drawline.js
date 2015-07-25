@@ -9,8 +9,8 @@ var latelyWorkArray = [];
 var latelyWorkPoint = 0;
 var i;
 var startHole, endHole;
+var parentArray = [];
 function InitThis() {
-
     ctx = document.getElementById('myCanvas').getContext("2d");
     log = document.getElementById('log');
     $('#myCanvas').mousedown(function (e) {
@@ -32,7 +32,6 @@ function InitThis() {
     $('#myCanvas').mouseleave(function (e) {
         mousePressed = false;
     });
-
 }
 
 function Draw(x, y, isDown) {
@@ -85,7 +84,7 @@ function cUndo() {
     }
     startCenterX = startCenterY = endCenterY = endCenterX = undefined;
     printTime();
-    $("#log").append("Undo V,I,R Value");
+    $("#log").append("Undo");
     $("#log").append(document.createElement('br'));
     log.scrollTop = log.scrollHeight;
 }
@@ -108,7 +107,7 @@ function clearArea() {
     imageindexPoint = 0;
     startCenterX = startCenterY = endCenterY = endCenterX = undefined;
     printTime();
-    $("#log").append("Clear Area, Init V,I,R Value");
+    $("#log").append("Clear Area");
     $("#log").append(document.createElement('br'));
     log.scrollTop = log.scrollHeight;
 }
@@ -151,21 +150,56 @@ function findEndHole(x, y) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     var canvas = document.elementFromPoint(x, y);
     canvas.style.display = "none";
-    var endHole = document.elementFromPoint(x, y);
-    if (endHole.className == "mhole" || endHole.className == "hole") {
-        endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
-        endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
-        canvas.style.display = "";
-    }else if(endHole.className == "centerRect") {
-        endHole = endHole.parentNode;
-        endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
-        endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
-        canvas.style.display = "";
-    }else{
-        endCenterX = undefined;
-        endCenterY = undefined;
-        canvas.style.display = "";
+    endHole = document.elementFromPoint(x, y);
+    endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
+    endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
+    switch(endHole.className){
+        case 'hole':
+            if(startHole.className=="mhole"){ //시작점이 중앙
+                if(endHole.parentNode.id=='topplusline' || endHole.parentNode.id=='bottomplusline'){
+                    eval(endHole.parentNode.id).V = topplusline.V;
+                    parentArray.push(startHole.parentNode.id);
+                }else{
+                    eval(endHole.parentNode.id).V = 0;
+                }
+            }
+            break;
+        case 'mhole':
+            if(startHole.parentNode.id=='topplusline' || startHole.parentNode.id=='bottomplusline'){
+                eval(endHole.parentNode.id).V = topplusline.V;
+                parentArray.push(endHole.parentNode.id);
+            }
+            else{
+                eval(endHole.parentNode.id).V = 0;
+            }
+            break;
+        case 'centerRect':
+            endHole = endHole.parentNode;
+            endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
+            endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
+            if(startHole.className=="mhole"){ //시작점이 중앙
+                if(endHole.parentNode.id=='topplusline' || endHole.parentNode.id=='bottomplusline'){
+                    eval(endHole.parentNode.id).V = topplusline.V;
+                    parentArray.push(startHole.parentNode.id);
+                }else{
+                    eval(endHole.parentNode.id).V = 0;
+                }
+            }else if(startHole.className=="hole"){
+                if(endHole.parentNode.id=='topplusline' || endHole.parentNode.id=='bottomplusline'){
+                    eval(endHole.parentNode.id).V = topplusline.V;
+                    parentArray.push(endHole.parentNode.id);
+                }else{
+                    eval(endHole.parentNode.id).V = 0;
+                    //console.log(eval(endHole.parentNode.id).V);
+                }
+            }
+            break;
+        default :
+            endCenterX = undefined;
+            endCenterY = undefined;
+            break;
     }
+    canvas.style.display = "";
     if(xyArray[indexPoint][0] != 0 && xyArray[indexPoint][1] != 0) {
         colorArray[indexPoint] = $('#selColor').val();
         xyArray[indexPoint][2] = endCenterX;

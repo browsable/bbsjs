@@ -10,7 +10,9 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="js/dragImage.js"></script>
     <script type="text/javascript" src="js/componentObject.js"></script>
-    <script type="text/javascript" src="js/holeObject.js"></script>
+    <!--<script type="text/javascript" src="js/holeObject.js"></script>-->
+    <script type="text/javascript" src="js/parentObject.js"></script>
+    <script type="text/javascript" src="js/circuitObject.js"></script>
     <script type="text/javascript" src="js/drawline.js"></script>
     <script type="text/javascript" src="js/guide.js"></script>
     <script type="text/javascript" src="js/loadcanvas.js"></script>
@@ -319,7 +321,7 @@
                         </div>
                         <br>
 
-                        <div class="minusline">
+                        <div class="minusline" id="topminusline">
                             <div class="hole" id="hole1_0">
                                 <div class="centerRect"></div>
                             </div>
@@ -1635,7 +1637,7 @@
                         </div>
                         <br>
 
-                        <div class="minusline">
+                        <div class="minusline" id="bottomminusline">
                             <div class="hole" id="hole3_0">
                                 <div class="centerRect"></div>
                             </div>

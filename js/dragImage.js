@@ -6,8 +6,8 @@ var imageArray = [];
 var imagexyArray = [];
 var imageindexPoint = 0;
 var selVoltageValue =0;
-
-
+var timer;
+var undefinedFlag = false;
 window.addEventListener("load", doFirst, false);
 function doFirst(){
 	var led_red_off = document.getElementById('led_red_off');
@@ -60,13 +60,9 @@ function doFirst(){
 	 component.addEventListener("drop",dropped,false);
 
  }
- function getImageId(e){
-	// console.log(e.target.nodeName);
- }
 
  function startDrag(e){
 	 targetId =  e.target.id;
-	 console.log(targetId);
 	 var componentId = document.getElementById("componentId");
 	 var resistorValue  = document.getElementById("resistorValue");
 	 switch(targetId){
@@ -209,9 +205,8 @@ function doFirst(){
 			 var hole1 = document.getElementById(prevId);
 
 		 }
-	 }
-
-	 if (hole1 != null) {
+	 }e
+	 if (hole1 != undefined) {
 		 if (hole2.className == "mhole" || hole2.className == "hole") {
 			 if (hole1.className == "mhole" || hole1.className == "hole") {
 				 imageX = hole2.offsetLeft + (hole2.offsetWidth / 10) - 34;
@@ -240,62 +235,33 @@ function doFirst(){
 		 } else {
 			 canvas.style.display = "";
 		 }
+		 printTime();
+		 if (targetId.charAt(0) == "l") {
+			 targetId = targetId.slice(0, -4).toUpperCase();
+			 $("#log").append("Component Name: '" + targetId + "', ");
+		 } else {
+			 $("#log").append("Component Name: '" + targetId + "', ");
+		 }
+		 $("#log").append("1st hole: '" + hole1.id + "', ");
+		 $("#log").append("2nd Hole: '" + hole2.id + "' ");
+		 $("#log").append(document.createElement('br'));
+		 log.scrollTop = log.scrollHeight;
 	 } else {
 		 canvas.style.display = "";
 	 }
 
-
-	 VIRSetting(hole1,hole2);
  }
-
-function VIRSetting(hole1, hole2){
-
-	var hole1Parent =hole1.parentNode.children;
-	var hole2Parent =hole2.parentNode.children;
-
-	for(var childnode in hole1.parentNode.children){
-		if(childnode.charAt(0)=="m"){
-			eval(childnode).R += eval(targetId).resistorValue;
-			console.log(eval(childnode).R);
-		}
-	}
-	for(var childnode in hole2.parentNode.children){
-		if(childnode.charAt(0)=="m"){
-			eval(childnode).R += eval(targetId).resistorValue;
-			console.log(eval(childnode).R);
-		}
-	}
-	printTime();
-	if(targetId.charAt(0)=="l") {
-		$("#log").append("Component Name: '" + targetId.substring(0,7) + "', ");
-	}else{
-		$("#log").append("Component Name: '" + targetId + "', ");
-	}
-	$("#log").append("1st hole: '"+hole1.id +"', ");
-	$("#log").append("2nd Hole: '"+hole2.id +"' ");
-	$("#log").append(document.createElement('br'));
-	log.scrollTop = log.scrollHeight;
-}
-
 function setVoltage() {
 	selVoltageValue = $('#selVoltage').val();
-	var topplusline = document.getElementById('topplusline');
-	var bottomplusline = document.getElementById('bottomplusline');
-	var log = document.getElementById('log');
-	for(var childnode in topplusline.children){
-		if(childnode.charAt(0)=="h"){
-			eval(childnode).V = Number(selVoltageValue);
-		}
-	}
-	for(var childnode in bottomplusline.children){
-		if(childnode.charAt(0)=="h"){
-			eval(childnode).V = Number(selVoltageValue);
-		}
-	}
+	topplusline.V = bottomplusline.V = selVoltageValue;
 	printTime();
 	$("#log").append("Power Supply Voltage Setting Complete: "+ String(selVoltageValue)+"V");
 	$("#log").append(document.createElement('br'));
 	log.scrollTop = log.scrollHeight;
+	timer = setInterval(checkCirCuit, 2000);
+}
+var item;
+function checkCirCuit(){
 
 }
 
@@ -303,8 +269,8 @@ function printTime() {
 	var now = new Date();
 	var nowTime = now.getFullYear() + "." + (now.getMonth()+1) + "-" + now.getDate() + " "+ now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + " / ";
 	$("#log").append(nowTime);
-	//setTimeout("printTime()",1000);
 }
+
 window.onload = function() {
 	var now = new Date();
 	var nowTime = now.getFullYear() + "." + (now.getMonth()+1) + "-" + now.getDate() + " "+ now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + " / ";
