@@ -11,7 +11,7 @@ var i;
 var startHole;
 var curcuit;
 function InitThis() {
-    curcuit = new Circuit();
+    //curcuit = new Circuit();
     ctx = document.getElementById('myCanvas').getContext("2d");
     log = document.getElementById('log');
     $('#myCanvas').mousedown(function (e) {
