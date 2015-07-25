@@ -123,8 +123,17 @@
                         <li><img id="R_100000" src="images/components/R_100000.png" width="36">
                             <h5 class="ui-widget-header" align="center">100Kohm</h5>
                         </li>
-                        <li><img id="Current" src="images/components/Current.png" width="36">
-                            <h5 class="ui-widget-header" align="center">Current</h5>
+                        <li><img id="Current_Left" src="images/components/Current_Left.png" width="36">
+                            <h5 class="ui-widget-header" align="center">Current_Left</h5>
+                        </li>
+                        <li><img id="Current_Right" src="images/components/Current_Right.png" width="36">
+                            <h5 class="ui-widget-header" align="center">Current_Right</h5>
+                        </li>
+                        <li><img id="Voltage_Left" src="images/components/Voltage_Left.png" width="36">
+                            <h5 class="ui-widget-header" align="center">Voltage_Left</h5>
+                        </li>
+                        <li><img id="Voltage_Right" src="images/components/Voltage_Right.png" width="36">
+                            <h5 class="ui-widget-header" align="center">Voltage_Right</h5>
                         </li>
                     </ol>
                 </div>
@@ -175,6 +184,22 @@
     <div class="col-sm-6">
         <div class="row">
             <div class="col-xs-12">
+                <select id="selVoltage" onchange="setVoltage();return false;">
+                    <option value="0">Voltage</option>
+                    <option value="0">0V</option>
+                    <option value="1">1V</option>
+                    <option value="2">2V</option>
+                    <option value="3">3V</option>
+                    <option value="4">4V</option>
+                    <option value="5">5V</option>
+                    <option value="6">6V</option>
+                    <option value="7">7V</option>
+                    <option value="8">8V</option>
+                    <option value="9">9V</option>
+                    <option value="10">10V</option>
+                    <option value="11">11V</option>
+                    <option value="12">12V</option>
+                </select>
                 <div style="float:right; margin-bottom: 5px">
                     <button onclick="cUndo();return false;">undo</button>
                     <button onclick="clearArea();return false;">Clear Area</button>
@@ -201,7 +226,7 @@
                     </script>
                     <div class="powersection">
                         <hr class="plusbar">
-                        <div class="plusline">
+                        <div class="plusline" id="topplusline">
                             <div class="hole" id="hole0_0">
                                 <div class="centerRect"></div>
                             </div>
@@ -1517,7 +1542,7 @@
                     </div>
                     <div class="powersection">
                         <hr class="plusbar">
-                        <div class="plusline">
+                        <div class="plusline" id="bottomplusline">
                             <div class="hole" id="hole2_0">
                                 <div class="centerRect"></div>
                             </div>

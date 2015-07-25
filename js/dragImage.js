@@ -2,9 +2,10 @@ var canvas;
 var log;
 var imageX, imageY;
 var targetId;
-var imageArray = new Array;
-var imagexyArray = new Array;
+var imageArray = [];
+var imagexyArray = [];
 var imageindexPoint = 0;
+var selVoltageValue =0;
 
 
 window.addEventListener("load", doFirst, false);
@@ -26,7 +27,10 @@ function doFirst(){
 	var R_4700 = document.getElementById('R_4700');
 	var R_10000 = document.getElementById('R_10000');
 	var R_100000 = document.getElementById('R_100000');
-	var Current = document.getElementById('Current')
+	var Current_Left = document.getElementById('Current_Left');
+	var Current_Right = document.getElementById('Current_Right');
+	var Voltage_Left = document.getElementById('Voltage_Left');
+	var Voltage_Right = document.getElementById('Voltage_Right');
 
 	led_red_off.addEventListener("dragstart",startDrag,false);
 	led_yellow_off.addEventListener("dragstart",startDrag,false);
@@ -45,7 +49,10 @@ function doFirst(){
 	R_4700.addEventListener("dragstart",startDrag,false);
 	R_10000.addEventListener("dragstart",startDrag,false);
 	R_100000.addEventListener("dragstart",startDrag,false);
-	Current.addEventListener("dragstart",startDrag,false);
+	Current_Left.addEventListener("dragstart",startDrag,false);
+	Current_Right.addEventListener("dragstart",startDrag,false);
+	Voltage_Left.addEventListener("dragstart",startDrag,false);
+	Voltage_Right.addEventListener("dragstart",startDrag,false);
 
 	 var component = document.getElementById('breadboard');
 	 component.addEventListener("dragenter",function(e){e.preventDefault();},false);
@@ -131,9 +138,21 @@ function doFirst(){
 			 componentId.innerHTML = R_100000.id;
 			 resistorValue.innerHTML = R_100000.resistorValue;
 			 break;
-		 case 'Current':
-			 componentId.innerHTML = Current.id;
-			 resistorValue.innerHTML = Current.resistorValue;
+		 case 'Current_Left':
+			 componentId.innerHTML = Current_Left.id;
+			 resistorValue.innerHTML = Current_Left.resistorValue;
+			 break;
+		 case 'Current_Right':
+			 componentId.innerHTML = Current_Right.id;
+			 resistorValue.innerHTML = Current_Right.resistorValue;
+			 break;
+		 case 'Voltage_Left':
+			 componentId.innerHTML = Voltage_Left.id;
+			 resistorValue.innerHTML = Voltage_Left.resistorValue;
+			 break;
+		 case 'Voltage_Right':
+			 componentId.innerHTML = Voltage_Right.id;
+			 resistorValue.innerHTML = Voltage_Right.resistorValue;
 			 break;
 	 }
  }
@@ -201,7 +220,7 @@ function doFirst(){
 				 var ctx = canvas.getContext("2d");
 				 var catImage = new Image();
 
-				 catImage.src = "images/components/"+targetId+".png"
+				 catImage.src = "images/components/"+targetId+".png";
 
 
 				 ctx.drawImage(catImage, imageX, imageY, 42, 36);
@@ -213,7 +232,7 @@ function doFirst(){
 				 imagexyArray[imageindexPoint][1] = imageY;
 				 imageindexPoint += 1;
 				 latelyWorkArray[latelyWorkPoint] = 1;
-				 latelyWorkPoint++;
+				 latelyWorkPoint += 1;
 
 			 } else {
 				 canvas.style.display = "";
@@ -242,16 +261,14 @@ function VIRSetting(hole1, hole2){
 
 	for(var childnode in hole1.parentNode.children){
 		if(childnode.charAt(0)=="m"){
-			//console.log(childnode.toString());
-			//var child = document.getElementsByClassName(childnode.toString());
-			console.log(eval(childnode).V);
+			eval(childnode).R += eval(targetId).resistorValue;
+			console.log(eval(childnode).R);
 		}
 	}
 	for(var childnode in hole2.parentNode.children){
 		if(childnode.charAt(0)=="m"){
-			//console.log(childnode.toString());
-			//var child = document.getElementsByClassName(childnode.toString());
-			console.log(eval(childnode).V);
+			eval(childnode).R += eval(targetId).resistorValue;
+			console.log(eval(childnode).R);
 		}
 	}
 	console.log("hole1:");
@@ -259,4 +276,20 @@ function VIRSetting(hole1, hole2){
 	console.log("hole2:");
 	console.log(hole2);
 
+}
+
+function setVoltage() {
+	selVoltageValue = $('#selVoltage').val();
+	var topplusline = document.getElementById('topplusline');
+	var bottomplusline = document.getElementById('bottomplusline');
+	for(var childnode in topplusline.children){
+		if(childnode.charAt(0)=="h"){
+			eval(childnode).V = Number(selVoltageValue);
+		}
+	}
+	for(var childnode in bottomplusline.children){
+		if(childnode.charAt(0)=="h"){
+			eval(childnode).V = Number(selVoltageValue);
+		}
+	}
 }
