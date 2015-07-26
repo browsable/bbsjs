@@ -205,7 +205,7 @@ function doFirst(){
 			 var hole1 = document.getElementById(prevId);
 
 		 }
-	 }e
+	 }e;
 	 if (hole1 != undefined) {
 		 if (hole2.className == "mhole" || hole2.className == "hole") {
 			 if (hole1.className == "mhole" || hole1.className == "hole") {
@@ -277,4 +277,4 @@ window.onload = function() {
 	$("#log").append(nowTime);
 	$("#log").append("onload : Bread Board Simulation Start");
 	$("#log").append(document.createElement('br'));
-}
+};

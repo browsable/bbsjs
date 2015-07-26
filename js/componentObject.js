@@ -89,17 +89,17 @@ var R_100000 = {
 var Current_Left = {
     id: "Current_Left",
     resistorValue: 0
-}
+};
 
 var Current_Right = {
     id: "Current_Right",
     resistorValue: 0
-}
+};
 
 var Voltage_Left = {
     id: "Voltage_Left",
     resistorValue: 0
-}
+};
 
 var Voltage_Right = {
     id: "Voltage_Right",
