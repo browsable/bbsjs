@@ -88,12 +88,12 @@ var R_100000 = {
 
 var Current_Left = {
     id: "Current_Left",
-    resistorValue: 0
+    resistorValue: "Infinite"
 };
 
 var Current_Right = {
     id: "Current_Right",
-    resistorValue: 0
+    resistorValue: "Infinite"
 };
 
 var Voltage_Left = {

@@ -67,71 +67,71 @@ function doFirst(){
 	 var resistorValue  = document.getElementById("resistorValue");
 	 switch(targetId){
 		 case 'led_red_off':
-			 componentId.innerHTML = led_red_off.id;
+			 componentId.innerHTML = "LED_RED";
 			 resistorValue.innerHTML = led_red_off.resistorValue;
 		 	break;
 		 case 'led_yellow_off':
-			 componentId.innerHTML = led_yellow_off.id;
+			 componentId.innerHTML = "LED_YELLOW";
 			 resistorValue.innerHTML = led_yellow_off.resistorValue;
 			 break;
 		 case 'led_green_off':
-			 componentId.innerHTML = led_green_off.id;
+			 componentId.innerHTML = "LED_GREEN";
 			 resistorValue.innerHTML = led_green_off.resistorValue;
 			 break;
 		 case 'R_100':
-			 componentId.innerHTML = R_100.id;
+			 componentId.innerHTML = "100ohm";
 			 resistorValue.innerHTML = R_100.resistorValue;
 			 break;
 		 case 'R_200':
-			 componentId.innerHTML = R_200.id;
+			 componentId.innerHTML = "200ohm";
 			 resistorValue.innerHTML = R_200.resistorValue;
 			 break;
 		 case 'R_220':
-			 componentId.innerHTML = R_220.id;
+			 componentId.innerHTML = "220ohm";
 			 resistorValue.innerHTML = R_220.resistorValue;
 			 break;
 		 case 'R_300':
-			 componentId.innerHTML = R_300.id;
+			 componentId.innerHTML = "300ohm";
 			 resistorValue.innerHTML = R_300.resistorValue;
 			 break;
 		 case 'R_330':
-		 	componentId.innerHTML = R_330.id;
-			resistorValue.innerHTML = R_330.resistorValue;
+			 componentId.innerHTML = "330ohm";
+			 resistorValue.innerHTML = R_330.resistorValue;
 		 break;
 		 case 'R_470':
-			 componentId.innerHTML = R_470.id;
+			 componentId.innerHTML = "470ohm";
 			 resistorValue.innerHTML = R_470.resistorValue;
 			 break;
 		 case 'R_560':
-			 componentId.innerHTML = R_560.id;
+			 componentId.innerHTML = "560ohm";
 			 resistorValue.innerHTML = R_560.resistorValue;
 			 break;
 		 case 'R_1000':
-			 componentId.innerHTML = R_1000.id;
+			 componentId.innerHTML = "1Kohm";
 			 resistorValue.innerHTML = R_1000.resistorValue;
 			 break;
 		 case 'R_2000':
-			 componentId.innerHTML = R_2000.id;
+			 componentId.innerHTML = "2Kohm";
 			 resistorValue.innerHTML = R_2000.resistorValue;
 			 break;
 		 case 'R_3000':
-			 componentId.innerHTML = R_3000.id;
+			 componentId.innerHTML = "3Kohm";
 			 resistorValue.innerHTML = R_3000.resistorValue;
 			 break;
 		 case 'R_3300':
-			 componentId.innerHTML = R_3300.id;
+			 componentId.innerHTML = "3.3Kohm";
 			 resistorValue.innerHTML = R_3300.resistorValue;
 			 break;
 		 case 'R_4700':
-			 componentId.innerHTML = R_4700.id;
+			 componentId.innerHTML = "4.7Kohm";
 			 resistorValue.innerHTML = R_4700.resistorValue;
 			 break;
 		 case 'R_10000':
-			 componentId.innerHTML = R_10000.id;
+			 componentId.innerHTML = "10Kohm";
 			 resistorValue.innerHTML = R_10000.resistorValue;
 			 break;
 		 case 'R_100000':
-			 componentId.innerHTML = R_100000.id;
+			 componentId.innerHTML = "100Kohm";
 			 resistorValue.innerHTML = R_100000.resistorValue;
 			 break;
 		 case 'Current_Left':
