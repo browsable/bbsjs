@@ -246,8 +246,6 @@ function findEndHole(x, y) {
         $("#log").append("lineTo : '" + startHole.id + "' to '" + endHole.id+"'");
         $("#log").append(document.createElement('br'));
         log.scrollTop = log.scrollHeight;
-        holeArray.push(startHole.id);
-        holeArray.push(endHole.id);
-        console.log(holeArray.valueOf());
     }
+    depthFirstSearch(pa)
 }
