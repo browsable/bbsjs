@@ -10,7 +10,9 @@ var latelyWorkPoint = 0;
 var i;
 var startHole, endHole;
 var path;
+
 function InitThis() {
+
     ctx = document.getElementById('myCanvas').getContext("2d");
     log = document.getElementById('log');
     path = new Array(70);
