@@ -122,6 +122,7 @@ function show3() {
     var qn =  $('#ch3').val();
     imgnum="images/guide/" + qn + ".PNG";
     imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
+    loadXMLDoc(qn);
 }
 function show4() {
     // Use the identity matrix while clearing the canvas
@@ -129,6 +130,7 @@ function show4() {
     var qn =  $('#ch4').val();
     imgnum="images/guide/" + qn + ".PNG";
     imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
+    loadXMLDoc(qn);
 }
 function show5() {
     // Use the identity matrix while clearing the canvas
@@ -136,6 +138,7 @@ function show5() {
     var qn =  $('#ch5').val();
     imgnum="images/guide/" + qn + ".PNG";
     imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
+    loadXMLDoc(qn);
 }
 function show6() {
     // Use the identity matrix while clearing the canvas
@@ -143,6 +146,7 @@ function show6() {
     var qn =  $('#ch6').val();
     imgnum="images/guide/" + qn + ".PNG";
     imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
+    loadXMLDoc(qn);
 }
 function show7() {
     // Use the identity matrix while clearing the canvas
@@ -150,6 +154,7 @@ function show7() {
     var qn =  $('#ch7').val();
     imgnum="images/guide/" + qn + ".PNG";
     imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
+    loadXMLDoc(qn);
 }
 
 function loadXMLDoc(txtnum) {
