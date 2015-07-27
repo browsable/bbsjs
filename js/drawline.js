@@ -9,10 +9,21 @@ var latelyWorkArray = [];
 var latelyWorkPoint = 0;
 var i;
 var startHole, endHole;
-var holeArray = [];
+var path;
 function InitThis() {
     ctx = document.getElementById('myCanvas').getContext("2d");
     log = document.getElementById('log');
+    path = new Array(70);
+    /*for(var i =0; i<70; i++){
+        path[i] = new Array(70);
+        for(var j=0; j<70; i++){
+            if(i==j) path[i][j] = 1;
+            //else path[i][j]=1;
+        }
+    }
+    for(var i =0; i<70; i++){
+           console.log(path[i]);
+    }*/
     $('#myCanvas').mousedown(function (e) {
         mousePressed = true;
         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
@@ -155,11 +166,9 @@ function findEndHole(x, y) {
     endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
     switch(endHole.className){
         case 'hole':
-            if(startHole.className=="mhole"){ //?‹œ?ž‘? ?´ ì¤‘ì•™
+            if(startHole.className=="mhole"){ //?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ì¤‘ì•™
                 if(endHole.parentNode.id=='topplusline' || endHole.parentNode.id=='bottomplusline'){
                     eval(startHole.parentNode.id).V = topplusline.V;
-                    eval(endHole.id).nextNode = startHole.id;
-                    console.log(eval(endHole.id).nextNode);
 
                 }else{
                     eval(endHole.parentNode.id).V = 0;
@@ -167,49 +176,34 @@ function findEndHole(x, y) {
             }else if(startHole.className=="centerRect"){
                 if(startHole.parentNode.id=='topplusline' || endHole.parentNode.id=='bottomplusline'){
                     eval(endHole.parentNode.id).V = topplusline.V;
-                    eval(endHole.id).nextNode = startHole.id;
-                    console.log(eval(endHole.id).nextNode);
                 }else{
                     eval(endHole.parentNode.id).V = 0;
                 }
             }
             break;
         case 'mhole':
-            if(startHole.className=="mhole"){
-                eval(startHole.id).nextNode = endHole.id;
-            }else {
                 if (startHole.parentNode.id == 'topplusline' || startHole.parentNode.id == 'bottomplusline') {
                     eval(endHole.parentNode.id).V = topplusline.V;
-                    eval(startHole.id).nextNode = endHole.id;
-                    console.log(eval(startHole.id).nextNode);
                 }
                 else {
                     eval(endHole.parentNode.id).V = 0;
                 }
-            }
-
             break;
         case 'centerRect':
             endHole = endHole.parentNode;
             endCenterX = endHole.offsetLeft + (endHole.offsetWidth / 10);
             endCenterY = endHole.offsetTop + (endHole.offsetHeight / 10);
-            if(startHole.className=="mhole"){ //?‹œ?ž‘? ?´ ì¤‘ì•™
-                if(startHole.className=="hole") {
-                    if (endHole.parentNode.id == 'topplusline' || endHole.parentNode.id == 'bottomplusline') {
-                        eval(endHole.parentNode.id).V = topplusline.V;
-                        eval(endHole.id).nextNode = startHole.id;
-                        console.log(eval(endHole.id).nextNode);
-                    } else {
-                        eval(endHole.parentNode.id).V = 0;
-                    }
-                }else{
-                    eval(startHole.id).nextNode = endHole.id;
+            if(startHole.className=="mhole"){ //?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ì¤‘ì•™
+              if (endHole.parentNode.id == 'topplusline' || endHole.parentNode.id == 'bottomplusline') {
+                    eval(endHole.parentNode.id).V = topplusline.V;
+                } else {
+                    eval(endHole.parentNode.id).V = 0;
                 }
+
             }else if(startHole.className=="hole"){
                 if(startHole.parentNode.id=='topplusline' || startHole.parentNode.id=='bottomplusline'){
                     eval(endHole.parentNode.id).V = topplusline.V;
-                    eval(startHole.id).nextNode = endHole.id;
-                    console.log(eval(startHole.id).nextNode);
+
                 }else{
                     eval(endHole.parentNode.id).V = 0;
                 }
@@ -255,6 +249,5 @@ function findEndHole(x, y) {
         holeArray.push(startHole.id);
         holeArray.push(endHole.id);
         console.log(holeArray.valueOf());
-        console.log(eval(startHole.id).nextNode);
     }
 }
