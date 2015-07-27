@@ -38,26 +38,30 @@
     <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">File<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="File">File<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Open</a></li>
-                    <li><a href="#">Save As..</a></li>
+                    <li><a href="#" id="Open">Open</a></li>
+                    <li><a href="#" id="Savea">Save As..</a></li>
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="Edit">Edit<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">undo</a></li>
-                    <li><a href="#">refresh</a></li>
+                    <li><a href="#" id="Undo1">undo</a></li>
+                    <li><a href="#" id="Refresh">refresh</a></li>
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="Help">Help<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li id="about" onclick="cabout(this.id);"><a href="#">about..</a></li>
                 </ul>
             </li>
         </ul>
+        <div style="display:inline; float:right; padding: 10px">
+            <Button onclick="ENG2KOR();return false;">한글</Button>
+            <Button onclick="KOR2ENG();return false;">English</Button>
+        </div>
     </div>
 </nav>
 
@@ -67,7 +71,7 @@
     <!--left-->
     <div class="col-sm-3">
         <div class="panel panel-default" style="margin-top: 30px">
-            <div class="panel-heading"><h4>Components</h4></div>
+            <div class="panel-heading" id="Components"><h4>Components</h4></div>
             <div class="panel-body">
                 <div id="componentsBox">
                     <ol id="selectable">
@@ -143,16 +147,20 @@
         </div>
 
         <div class="panel panel-default" style="margin-top: 27px">
-            <div class="panel-heading"><h4>Properties</h4></div>
+            <div class="panel-heading" id="Properties"><h4>Properties</h4></div>
             <div class="panel-body">
                 <table class="properties">
                     <tr>
-                        <td>Component Name</td>
-                        <td><div id="componentId"></div></td>
+                        <td id="ComponentName">Component Name</td>
+                        <td>
+                            <div id="componentId"></div>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Resistance Value</td>
-                        <td><div id="resistorValue"></div></td>
+                        <td id="ResistanceValue">Resistance Value</td>
+                        <td>
+                            <div id="resistorValue"></div>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -160,24 +168,26 @@
 
         <div class="panel panel-default" style="margin-top: 27px">
             <div style="float:right; vertical-align:middle; margin-top: 15px; margin-right: 15px;">
-                <button onclick="cMeasure();return false;">Measure</button>
+                <button onclick="cMeasure();return false;">
+                    <div id="Measure">Measure</div>
+                </button>
             </div>
-            <div class="panel-heading"><h4>Results</h4></div>
+            <div class="panel-heading" id="Results"><h4>Results</h4></div>
             <div class="panel-body">
                 <table class="results">
                     <tr>
-                        <td>Voltage in Circuit</td>
+                        <td id="VoltageC">Voltage in Circuit</td>
                         <td>Voltage</td>
                     <tr>
-                        <td>Measured Voltage Value</td>
+                        <td id="MeasureV">Measured Voltage Value</td>
                         <td>V</td>
                     </tr>
                     <tr>
-                        <td>Measured Current Value</td>
+                        <td id="MeasureC">Measured Current Value</td>
                         <td>I</td>
                     </tr>
                     <tr>
-                        <td>Measured Current Resistance</td>
+                        <td id="MeasureR">Measured Current Resistance</td>
                         <td>R</td>
                     </tr>
                 </table>
@@ -207,15 +217,15 @@
                     <option value="12">12V</option>
                 </select>
                 <div style="float:right; margin-bottom: 5px">
-                    <button onclick="cUndo();return false;">undo</button>
-                    <button onclick="clearArea();return false;">Clear Area</button>
+                    <button id="Undo2" onclick="cUndo();return false;">undo</button>
+                    <button id="Clear" onclick="clearArea();return false;">Clear Area</button>
                     Line width : <select id="selWidth">
                     <option value="3">3</option>
                     <option value="5" selected="selected">5</option>
                     <option value="7">7</option>
                     <option value="9">9</option>
                 </select>
-                    Color : <select id="selColor">
+                   Color : <select id="selColor">
                     <option value="black" selected="selected">black</option>
                     <option value="blue">blue</option>
                     <option value="red">red</option>
@@ -1731,7 +1741,7 @@
             </div>
         </div>
         <div class="panel panel-default" style="margin-top: 10px">
-            <div class="panel-heading"><h4>logcat</h4></div>
+            <div class="panel-heading" id="Logcat"><h4>logcat</h4></div>
             <div class="panel-body">
                 <div id="log">
                 </div>
@@ -1744,7 +1754,7 @@
     <!--right-->
     <div class="col-sm-3">
         <div class="panel panel-default" style="margin-top: 32px">
-            <div class="panel-heading"><h4>Chapter</h4></div>
+            <div class="panel-heading" id="Chapter"><h4>Chapter</h4></div>
 
             <div class="panel-body">Select Chapter.<p></p>
 
@@ -1817,15 +1827,19 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading"><h4>Guide</h4></div>
+            <div class="panel-heading" id="Guide"><h4>Guide</h4></div>
             <div class="panel-body">
-                <br>Circuit Diagram.
-                <div id = "imgGuide">
+                <br>
+
+                <div id="Diagram">Circuit Diagram.</div>
+                <div id="imgGuide">
 
                 </div>
 
-                <br>Guide Description.
-                <div id = "txtGuide">
+                <br>
+
+                <div id="Description">Guide Description.</div>
+                <div id="txtGuide">
 
                 </div>
 
