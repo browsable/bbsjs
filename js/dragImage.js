@@ -221,10 +221,12 @@ function doFirst(){
 				 ctx.drawImage(catImage, imageX, imageY, 42, 36);
 
 				 imageArray[imageindexPoint] = catImage.src;
-				 imagexyArray[imageindexPoint] = new Array(3);
+				 imagexyArray[imageindexPoint] = new Array(5);
 				 imagexyArray[imageindexPoint][0] = imageX;
 				 imagexyArray[imageindexPoint][1] = imageY;
 				 imagexyArray[imageindexPoint][2] = targetId;
+				 imagexyArray[imageindexPoint][3] = hole1;
+				 imagexyArray[imageindexPoint][4] = hole2;
 				 imageindexPoint += 1;
 				 latelyWorkArray[latelyWorkPoint] = 1;
 				 latelyWorkPoint += 1;
@@ -288,45 +290,43 @@ function setVoltage() {
 var item;
 function checkCirCuit(){
 	var dfsnodes = dfs(graph);
-	var circuit = false, plusline = false, minusline = false;
-	for(var i in dfsnodes){
-		if(dfsnodes[i].name.substring(3)=="plusline"){
+	var dfsnnodename = [];
+	var plusline = false, minusline = false;
+	for(var i in dfsnodes) {
+		dfsnnodename.push(dfsnodes[i].name);
+		if (dfsnodes[i].name.substring(3) == "plusline") {
 			plusline = true;
 		}
-		if(dfsnodes[i].name.substring(3)=="minusline"){
+		if (dfsnodes[i].name.substring(3) == "minusline") {
 			minusline = true;
 		}
-		if(dfsnodes[i].name.substring(6)=="plusline"){
+		if (dfsnodes[i].name.substring(6) == "plusline") {
 			plusline = true;
 		}
-		if(dfsnodes[i].name.substring(6)=="minusline"){
+		if (dfsnodes[i].name.substring(6) == "minusline") {
 			minusline = true;
 		}
-		if(minusline&&plusline){
-			console.log("connection complete");
-			for(i = 0; i < imageindexPoint; i++) {
-				var catImage = new Image();
-				switch(imagexyArray[i][2]){
+	}
+	console.log(dfsnnodename);
+	if(minusline&&plusline){
+		console.log("connection complete");
+		for(var i = 0; i < imageindexPoint; i++) {
+			var catImage = new Image();
+			if(dfsnnodename.indexOf(imagexyArray[i][3].parentNode.id)>-1&&dfsnnodename.indexOf(imagexyArray[i][4].parentNode.id)>-1) {
+				switch (imagexyArray[i][2]) {
 					case 'led_red_off':
-						console.log("led red");
 						catImage.src = "images/components/led_red_on.png";
 						break;
 					case 'led_green_off':
-						console.log("led green");
 						catImage.src = "images/components/led_green_on.png";
 						break;
 					case 'led_yellow_off':
-						console.log("led yellow");
 						catImage.src = "images/components/led_yellow_on.png";
 						break;
 					default :
-						console.log("led default");
 						catImage.src = imageArray[i];
 						break;
 				}
-				var temp = document.elementFromPoint(imagexyArray[i][0], imagexyArray[i][1]);
-				//if(graph.nodeExist(temp.parentNode.id))
-				console.log(temp.parentNode.id);
 				ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
 			}
 		}

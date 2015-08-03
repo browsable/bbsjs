@@ -29,11 +29,8 @@ function Graph(){
 
     }
     function removeAll(){
-            len=this.nodes.length;
-            for (var i = 0; i < len; i++) {
-                this.nodes[i]=null;
-                this.nodeNames[i]=null;
-            }
+                this.nodes=new Array();
+                this.nodeNames=new Array();
     }
     function nodeExist(Name){
         index=this.nodeNames.indexOf(Name);

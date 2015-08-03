@@ -111,7 +111,7 @@ function clearArea() {
     $("#log").append("Clear Area");
     $("#log").append(document.createElement('br'));
     log.scrollTop = log.scrollHeight;
-    graph = new Graph();
+    graph.removeAll();
 }
 
 function findStartHole(x, y) {
@@ -264,16 +264,10 @@ function findEndHole(x, y) {
             graph.addNode(endNode);
          }
 
-        /*for(var a in graph.getAllNodes()){
-            console.log(graph.nodes[a]);
-        }*/
-        console.log(dfs(graph)[0]);
-        console.log(dfs(graph)[dfs(graph).length-1]);
-        console.log("graph~~~~~~");
-        console.log(dfs(graph));
-        //console.log(graph.getNode(startNode));
-       // console.log(startNode.adjList[0]);
-       // console.log(endNode.adjList[0]);
+        /*console.log(dfs(graph)[0]);
+         console.log(dfs(graph)[dfs(graph).length-1]);
+         console.log("graph~~~~~~");
+         console.log(dfs(graph));*/
     }
 
 }
