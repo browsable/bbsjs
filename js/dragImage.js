@@ -220,11 +220,11 @@ function doFirst(){
 
 				 ctx.drawImage(catImage, imageX, imageY, 42, 36);
 
-				 imageArray[imageindexPoint] = new Image();
 				 imageArray[imageindexPoint] = catImage.src;
-				 imagexyArray[imageindexPoint] = new Array(2);
+				 imagexyArray[imageindexPoint] = new Array(3);
 				 imagexyArray[imageindexPoint][0] = imageX;
 				 imagexyArray[imageindexPoint][1] = imageY;
+				 imagexyArray[imageindexPoint][2] = targetId;
 				 imageindexPoint += 1;
 				 latelyWorkArray[latelyWorkPoint] = 1;
 				 latelyWorkPoint += 1;
@@ -246,6 +246,31 @@ function doFirst(){
 		 $("#log").append("2nd Hole: '" + hole2.id + "' ");
 		 $("#log").append(document.createElement('br'));
 		 log.scrollTop = log.scrollHeight;
+		 if(graph.nodeExist(hole1.parentNode.id)&&graph.nodeExist(hole2.parentNode.id)){
+			 console.log("two same");
+			 graph.getNode(hole1.parentNode.id).addEdge(endNode, 1);
+			 graph.getNode(hole2.parentNode.id).addEdge(startNode,1);
+		 }else if(graph.nodeExist(hole1.parentNode.id)&&!graph.nodeExist(hole2.parentNode.id)) {
+			 console.log("starthole same");
+			 endNode = new Node(hole2.parentNode.id);
+			 endNode.addEdge(startNode,1);
+			 graph.getNode(hole1.parentNode.id).addEdge(endNode, 1);
+			 graph.addNode(endNode);
+		 }else if(!graph.nodeExist(hole1.parentNode.id)&&graph.nodeExist(hole2.parentNode.id)){
+			 console.log("endhole same");
+			 startNode = new Node(hole1.parentNode.id);
+			 startNode.addEdge(endNode, 1);
+			 graph.getNode(hole2.parentNode.id).addEdge(startNode,1);
+			 graph.addNode(startNode);
+		 }else{
+			 console.log("new");
+			 startNode = new Node(hole1.parentNode.id);
+			 endNode = new Node(hole2.parentNode.id);
+			 startNode.addEdge(endNode, 1);
+			 endNode.addEdge(startNode,1);
+			 graph.addNode(startNode);
+			 graph.addNode(endNode);
+		 }
 	 } else {
 		 canvas.style.display = "";
 	 }
@@ -258,11 +283,54 @@ function setVoltage() {
 	$("#log").append("Power Supply Voltage Setting Complete: "+ String(selVoltageValue)+"V");
 	$("#log").append(document.createElement('br'));
 	log.scrollTop = log.scrollHeight;
-	timer = setInterval(checkCirCuit, 2000);
+	timer = setInterval(checkCirCuit, 200);
 }
 var item;
 function checkCirCuit(){
-
+	var dfsnodes = dfs(graph);
+	var circuit = false, plusline = false, minusline = false;
+	for(var i in dfsnodes){
+		if(dfsnodes[i].name.substring(3)=="plusline"){
+			plusline = true;
+		}
+		if(dfsnodes[i].name.substring(3)=="minusline"){
+			minusline = true;
+		}
+		if(dfsnodes[i].name.substring(6)=="plusline"){
+			plusline = true;
+		}
+		if(dfsnodes[i].name.substring(6)=="minusline"){
+			minusline = true;
+		}
+		if(minusline&&plusline){
+			console.log("connection complete");
+			for(i = 0; i < imageindexPoint; i++) {
+				var catImage = new Image();
+				switch(imagexyArray[i][2]){
+					case 'led_red_off':
+						console.log("led red");
+						catImage.src = "images/components/led_red_on.png";
+						break;
+					case 'led_green_off':
+						console.log("led green");
+						catImage.src = "images/components/led_green_on.png";
+						break;
+					case 'led_yellow_off':
+						console.log("led yellow");
+						catImage.src = "images/components/led_yellow_on.png";
+						break;
+					default :
+						console.log("led default");
+						catImage.src = imageArray[i];
+						break;
+				}
+				var temp = document.elementFromPoint(imagexyArray[i][0], imagexyArray[i][1]);
+				//if(graph.nodeExist(temp.parentNode.id))
+				console.log(temp.parentNode.id);
+				ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
+			}
+		}
+	}
 }
 
 function printTime() {
@@ -277,4 +345,5 @@ window.onload = function() {
 	$("#log").append(nowTime);
 	$("#log").append("onload : Bread Board Simulation Start");
 	$("#log").append(document.createElement('br'));
+	graph = new Graph();
 };

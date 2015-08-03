@@ -10,10 +10,7 @@ var latelyWorkPoint = 0;
 var i;
 var startHole, endHole, startNode, endNode;
 var path;
-var graph;
 function InitThis() {
-
-    graph = new Graph();
     ctx = document.getElementById('myCanvas').getContext("2d");
     log = document.getElementById('log');
     path = new Array(70);
@@ -114,6 +111,7 @@ function clearArea() {
     $("#log").append("Clear Area");
     $("#log").append(document.createElement('br'));
     log.scrollTop = log.scrollHeight;
+    graph = new Graph();
 }
 
 function findStartHole(x, y) {
@@ -247,25 +245,32 @@ function findEndHole(x, y) {
          }else if(graph.nodeExist(startHole.parentNode.id)&&!graph.nodeExist(endHole.parentNode.id)) {
             console.log("starthole same");
             endNode = new Node(endHole.parentNode.id);
+            endNode.addEdge(startNode,1);
             graph.getNode(startHole.parentNode.id).addEdge(endNode, 1);
+            graph.addNode(endNode);
          }else if(!graph.nodeExist(startHole.parentNode.id)&&graph.nodeExist(endHole.parentNode.id)){
             console.log("endhole same");
             startNode = new Node(startHole.parentNode.id);
+            startNode.addEdge(endNode, 1);
             graph.getNode(endHole.parentNode.id).addEdge(startNode,1);
+            graph.addNode(startNode);
          }else{
             console.log("new");
             startNode = new Node(startHole.parentNode.id);
             endNode = new Node(endHole.parentNode.id);
             startNode.addEdge(endNode, 1);
             endNode.addEdge(startNode,1);
+            graph.addNode(startNode);
+            graph.addNode(endNode);
          }
 
-        graph.addNode2(startNode);
-        graph.addNode2(endNode);
-        for(var a in graph.getAllNodes()){
+        /*for(var a in graph.getAllNodes()){
             console.log(graph.nodes[a]);
-        }
-        //console.log(dfs(graph));
+        }*/
+        console.log(dfs(graph)[0]);
+        console.log(dfs(graph)[dfs(graph).length-1]);
+        console.log("graph~~~~~~");
+        console.log(dfs(graph));
         //console.log(graph.getNode(startNode));
        // console.log(startNode.adjList[0]);
        // console.log(endNode.adjList[0]);
