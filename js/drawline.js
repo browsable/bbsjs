@@ -8,24 +8,15 @@ var indexPoint = 0;
 var latelyWorkArray = [];
 var latelyWorkPoint = 0;
 var i;
-var startHole, endHole;
+var startHole, endHole, startNode, endNode;
 var path;
-
+var graph;
 function InitThis() {
 
+    graph = new Graph();
     ctx = document.getElementById('myCanvas').getContext("2d");
     log = document.getElementById('log');
     path = new Array(70);
-    /*for(var i =0; i<70; i++){
-        path[i] = new Array(70);
-        for(var j=0; j<70; i++){
-            if(i==j) path[i][j] = 1;
-            //else path[i][j]=1;
-        }
-    }
-    for(var i =0; i<70; i++){
-           console.log(path[i]);
-    }*/
     $('#myCanvas').mousedown(function (e) {
         mousePressed = true;
         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
@@ -157,6 +148,7 @@ function findStartHole(x, y) {
         catImage.src = imageArray[i];
         ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
     }
+
 }
 function findEndHole(x, y) {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -248,6 +240,35 @@ function findEndHole(x, y) {
         $("#log").append("lineTo : '" + startHole.id + "' to '" + endHole.id+"'");
         $("#log").append(document.createElement('br'));
         log.scrollTop = log.scrollHeight;
+        if(graph.nodeExist(startHole.parentNode.id)&&graph.nodeExist(endHole.parentNode.id)){
+            console.log("two same");
+            graph.getNode(startHole.parentNode.id).addEdge(endNode, 1);
+            graph.getNode(endHole.parentNode.id).addEdge(startNode,1);
+         }else if(graph.nodeExist(startHole.parentNode.id)&&!graph.nodeExist(endHole.parentNode.id)) {
+            console.log("starthole same");
+            endNode = new Node(endHole.parentNode.id);
+            graph.getNode(startHole.parentNode.id).addEdge(endNode, 1);
+         }else if(!graph.nodeExist(startHole.parentNode.id)&&graph.nodeExist(endHole.parentNode.id)){
+            console.log("endhole same");
+            startNode = new Node(startHole.parentNode.id);
+            graph.getNode(endHole.parentNode.id).addEdge(startNode,1);
+         }else{
+            console.log("new");
+            startNode = new Node(startHole.parentNode.id);
+            endNode = new Node(endHole.parentNode.id);
+            startNode.addEdge(endNode, 1);
+            endNode.addEdge(startNode,1);
+         }
+
+        graph.addNode2(startNode);
+        graph.addNode2(endNode);
+        for(var a in graph.getAllNodes()){
+            console.log(graph.nodes[a]);
+        }
+        //console.log(dfs(graph));
+        //console.log(graph.getNode(startNode));
+       // console.log(startNode.adjList[0]);
+       // console.log(endNode.adjList[0]);
     }
-    depthFirstSearch(pa)
+
 }

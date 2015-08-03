@@ -2,13 +2,18 @@ function Graph(){
     this.isWeighted=false;
     this.nodes=[]
     this.addNode=addNode;
+    this.addNode2=addNode2;
     this.removeNode=removeNode;
     this.nodeExist=nodeExist;
     this.getAllNodes=getAllNodes;
+    this.getNode=getNode;
     function addNode(Name){
         temp=new Node(Name);
         this.nodes.push(temp);
         return temp;
+    }
+    function addNode2(Node){
+       this.nodes.push(Node);
     }
     function removeNode(Name){
 
@@ -33,21 +38,16 @@ function Graph(){
         }
         return false;
     }
+    function getNode(Name){
+        index=this.nodes.indexOf(Name);
+        if(index>-1){
+            return this.nodes[index];
+        }
+        return false;
+    }
 
     function getAllNodes(){
         return this.nodes;
-    }
-
-    function getBFSTravaersal(){
-
-    }
-
-    function getBFSTravaersal(){
-
-    }
-
-    function getBFSTravaersal(){
-
     }
 
 }
@@ -80,8 +80,9 @@ function dfs(graph){
     while(traversedNodes.length!=0){
         var v=traversedNodes.pop();
         marked[v.name]=true;
-        adjList=v.adjList;
-        console.log(v);
+        //console.log(v.name);
+        adjList= v.adjList;
+        //console.log(adjList[0]);
         ans.push(v);
         for (var i=0;i<adjList.length;i++){
             u=adjList[i];
