@@ -307,7 +307,6 @@ function checkCirCuit(){
 			minusline = true;
 		}
 	}
-	console.log(dfsnnodename);
 	if(minusline&&plusline){
 		console.log("connection complete");
 		for(var i = 0; i < imageindexPoint; i++) {
