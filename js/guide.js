@@ -121,7 +121,7 @@ function show3() {
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch3').val();
     imgnum="images/guide/" + qn + ".PNG";
-    imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
+    imgGuide.innerHTML = "<img src=" + imgnum + " width='100%' height='100%'>";
     loadXMLDoc(qn);
 }
 function show4() {
@@ -129,7 +129,7 @@ function show4() {
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch4').val();
     imgnum="images/guide/" + qn + ".PNG";
-    imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
+    imgGuide.innerHTML = "<img src=" + imgnum + " width='100%' height='100%'>";
     loadXMLDoc(qn);
 }
 function show5() {
@@ -137,7 +137,7 @@ function show5() {
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch5').val();
     imgnum="images/guide/" + qn + ".PNG";
-    imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
+    imgGuide.innerHTML = "<img src=" + imgnum + " width='100%' height='100%'>";
     loadXMLDoc(qn);
 }
 function show6() {
@@ -145,7 +145,7 @@ function show6() {
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch6').val();
     imgnum="images/guide/" + qn + ".PNG";
-    imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
+    imgGuide.innerHTML = "<img src=" + imgnum + " width='100%' height='100%'>";
     loadXMLDoc(qn);
 }
 function show7() {
@@ -153,7 +153,7 @@ function show7() {
     var guide = document.getElementById("imgGuide");
     var qn =  $('#ch7').val();
     imgnum="images/guide/" + qn + ".PNG";
-    imgGuide.innerHTML = "<img src=" + imgnum + " width='407'>";
+    imgGuide.innerHTML = "<img src=" + imgnum + " width='100%' height='100%'>";
     loadXMLDoc(qn);
 }
 
