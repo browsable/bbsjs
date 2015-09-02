@@ -140,23 +140,6 @@ function show5() {
     imgGuide.innerHTML = "<img src=" + imgnum + " width='100%' height='100%'>";
     loadXMLDoc(qn);
 }
-function show6() {
-    // Use the identity matrix while clearing the canvas
-    var guide = document.getElementById("imgGuide");
-    var qn =  $('#ch6').val();
-    imgnum="images/guide/" + qn + ".PNG";
-    imgGuide.innerHTML = "<img src=" + imgnum + " width='100%' height='100%'>";
-    loadXMLDoc(qn);
-}
-function show7() {
-    // Use the identity matrix while clearing the canvas
-    var guide = document.getElementById("imgGuide");
-    var qn =  $('#ch7').val();
-    imgnum="images/guide/" + qn + ".PNG";
-    imgGuide.innerHTML = "<img src=" + imgnum + " width='100%' height='100%'>";
-    loadXMLDoc(qn);
-}
-
 function loadXMLDoc(txtnum) {
     var xmlhttp;
     if (window.XMLHttpRequest)
