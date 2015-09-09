@@ -245,6 +245,13 @@ function doFirst(){
 			 $("#log").append("Component Name: '" + targetId + "', ");
 		 }
 		 $("#log").append("1st hole: '" + hole1.id + "', ");
+		 hole1.parentNode.R = resistorValue.innerHTML;
+		 console.log("hole1 R : " + hole1.parentNode.R);
+
+		 hole2.parentNode.R = resistorValue.innerHTML;
+		 console.log("hole2 R : " + hole2.parentNode.R);
+
+
 		 $("#log").append("2nd Hole: '" + hole2.id + "' ");
 		 $("#log").append(document.createElement('br'));
 		 log.scrollTop = log.scrollHeight;

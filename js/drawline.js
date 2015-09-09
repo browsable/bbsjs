@@ -264,10 +264,29 @@ function findEndHole(x, y) {
             graph.addNode(endNode);
          }
 
-        /*console.log(dfs(graph)[0]);
-         console.log(dfs(graph)[dfs(graph).length-1]);
-         console.log("graph~~~~~~");
-         console.log(dfs(graph));*/
+         //console.log(dfs(graph)[0]);
+         //console.log(dfs(graph)[dfs(graph).length-1]);
+         //console.log("graph~~~~~~");
+         //console.log(dfs(graph));
+    }
+
+    if((startCenterX == endCenterX) && (startCenterY == endCenterY))
+    {
+        console.log("same, checkValue");
+        console.log("R : " + endHole.parentNode.R);
+        var VoltageC = document.getElementById("voltC");
+        var MeasureV = document.getElementById("measV");
+        var MeasureC = document.getElementById("measC");
+        var MeasureR = document.getElementById("measR");
+
+        MeasureR.innerHTML = endHole.parentNode.R;
+
+
+    }
+
+    else
+    {
+        console.log("no");
     }
 
 }
