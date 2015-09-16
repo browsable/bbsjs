@@ -293,6 +293,7 @@ function setVoltage() {
 	$("#log").append(document.createElement('br'));
 	log.scrollTop = log.scrollHeight;
 	timer = setInterval(checkCirCuit, 200);
+
 }
 var item;
 function checkCirCuit(){
@@ -318,6 +319,8 @@ function checkCirCuit(){
 		console.log("connection complete");
 		for(var i = 0; i < imageindexPoint; i++) {
 			var catImage = new Image();
+
+
 			if(dfsnnodename.indexOf(imagexyArray[i][3].parentNode.id)>-1&&dfsnnodename.indexOf(imagexyArray[i][4].parentNode.id)>-1) {
 				switch (imagexyArray[i][2]) {
 					case 'led_red_off':
