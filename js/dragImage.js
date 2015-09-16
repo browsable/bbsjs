@@ -246,11 +246,11 @@ function doFirst(){
 			 $("#log").append("Component Name: '" + targetId + "', ");
 		 }
 		 $("#log").append("1st hole: '" + hole1.id + "', ");
-		 //hole1.parentNode.R = resistorValue.innerHTML;
-		// console.log("hole1 R : " + hole1.parentNode.R);
+		 hole1.R = Number(resistorValue.innerHTML);
+		 //console.log("hole1 R : " + hole1.R);
 
-		// hole2.parentNode.R = resistorValue.innerHTML;
-		// console.log("hole2 R : " + hole2.parentNode.R);
+		 hole2.R = Number(resistorValue.innerHTML);
+		 //console.log("hole2 R : " + hole2.R);
 
 
 		 $("#log").append("2nd Hole: '" + hole2.id + "' ");
@@ -306,13 +306,22 @@ function doFirst(){
 
  }
 function setVoltage() {
-	selVoltageValue = $('#selVoltage').val();
+	var sum = 0;
+	var dfsnodes = dfs(graph);
+	for(var i in dfsnodes) {
+		sum += Number(eval(dfsnodes[i].name).R);
+	}
+
+		selVoltageValue = $('#selVoltage').val();
 	topplusline.V = bottomplusline.V = selVoltageValue;
 	printTime();
 	$("#log").append("Power Supply Voltage Setting Complete: "+ String(selVoltageValue)+"V");
 	$("#log").append(document.createElement('br'));
 	log.scrollTop = log.scrollHeight;
 	timer = setInterval(checkCirCuit, 200);
+
+	var VoltageC = document.getElementById("voltC");
+	VoltageC.innerHTML = selVoltageValue + "V / " + sum/2 + "R / " + Number(((selVoltageValue / (sum/2))*1000).toFixed(4)) + "mA";
 
 }
 var item;
@@ -321,6 +330,7 @@ function checkCirCuit(){
 	var dfsnnodename = [];
 	var plusline = false, minusline = false;
 	var sumR = 0;
+
 	for(var i in dfsnodes) {
 		dfsnnodename.push(dfsnodes[i].name);
 		if (dfsnodes[i].name.substring(3) == "plusline") {
@@ -331,6 +341,7 @@ function checkCirCuit(){
 		}
 		if (dfsnodes[i].name.substring(6) == "plusline") {
 			plusline = true;
+
 		}
 		if (dfsnodes[i].name.substring(6) == "minusline") {
 			minusline = true;

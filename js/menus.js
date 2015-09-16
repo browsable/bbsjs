@@ -34,7 +34,7 @@ function ENG2KOR(){
     var Measure = document.getElementById("Measure");
     Measure.innerHTML = Measure.innerHTML.replace("Measure","측정");
     var VoltageC = document.getElementById("VoltageC");
-    VoltageC.innerHTML = VoltageC.innerHTML.replace("Voltage in Circuit","회로전압");
+    VoltageC.innerHTML = VoltageC.innerHTML.replace("Circuit V, R, I","회로 전압, 저항, 전류");
     var MeasureV = document.getElementById("MeasureV");
     MeasureV.innerHTML = MeasureV.innerHTML.replace("Measured Voltage Value","측정 전압");
     var MeasureC = document.getElementById("MeasureC");
@@ -85,7 +85,7 @@ function KOR2ENG(){
     var Measure = document.getElementById("Measure");
     Measure.innerHTML = Measure.innerHTML.replace("측정","Measure");
     var VoltageC = document.getElementById("VoltageC");
-    VoltageC.innerHTML = VoltageC.innerHTML.replace("회로전압","Voltage in Circuit");
+    VoltageC.innerHTML = VoltageC.innerHTML.replace("회로 전압, 저항, 전류","Circuit V, R, I");
     var MeasureV = document.getElementById("MeasureV");
     MeasureV.innerHTML = MeasureV.innerHTML.replace("측정 전압","Measured Voltage Value");
     var MeasureC = document.getElementById("MeasureC");

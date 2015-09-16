@@ -275,13 +275,29 @@ function findEndHole(x, y) {
         console.log("same, checkValue");
         console.log("R : " +  eval(endHole.parentNode.id).R);
         selVoltageValue = $('#selVoltage').val();
-        var VoltageC = document.getElementById("voltC");
+
         var MeasureV = document.getElementById("measV");
         var MeasureC = document.getElementById("measC");
         var MeasureR = document.getElementById("measR");
 
-        VoltageC.innerHTML = selVoltageValue + "V";
+
+        var sum = 0;
+        var dfsnodes = dfs(graph);
+        for(var i in dfsnodes) {
+            sum += Number(eval(dfsnodes[i].name).R);
+        }
+        var allC = Number(((selVoltageValue / (sum/2))*1000));
+
+        MeasureV.innerHTML = (((sum/2) - eval(endHole.parentNode.id).R) / (sum/2)) * selVoltageValue;
         MeasureR.innerHTML = eval(endHole.parentNode.id).R;
+        MeasureC.innerHTML = Number(allC * (eval(endHole.parentNode.id).R / eval(endHole).R));
+
+        console.log("전체전류" + allC * (eval(endHole.parentNode.id).R / eval(endHole).R));
+        console.log("합성저항" + eval(endHole.parentNode.id).R);
+        console.log("홀 저항" + eval(endHole).R);
+
+
+        //console.log(eval(endHole).R);
 
 
     }
