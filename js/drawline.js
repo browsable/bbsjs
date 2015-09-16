@@ -273,7 +273,7 @@ function findEndHole(x, y) {
     if((startCenterX == endCenterX) && (startCenterY == endCenterY))
     {
         console.log("same, checkValue");
-        console.log("R : " + endHole.parentNode.R);
+        console.log("R : " +  eval(endHole.parentNode.id).R);
         selVoltageValue = $('#selVoltage').val();
         var VoltageC = document.getElementById("voltC");
         var MeasureV = document.getElementById("measV");
@@ -281,7 +281,7 @@ function findEndHole(x, y) {
         var MeasureR = document.getElementById("measR");
 
         VoltageC.innerHTML = selVoltageValue + "V";
-        MeasureR.innerHTML = endHole.parentNode.R;
+        MeasureR.innerHTML = eval(endHole.parentNode.id).R;
 
 
     }

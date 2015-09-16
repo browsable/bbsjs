@@ -8,6 +8,7 @@ var imageindexPoint = 0;
 var selVoltageValue =0;
 var timer;
 var undefinedFlag = false;
+var componentId;
 window.addEventListener("load", doFirst, false);
 function doFirst(){
 	var led_red_off = document.getElementById('led_red_off');
@@ -63,7 +64,7 @@ function doFirst(){
 
  function startDrag(e){
 	 targetId =  e.target.id;
-	 var componentId = document.getElementById("componentId");
+	 componentId = document.getElementById("componentId");
 	 var resistorValue  = document.getElementById("resistorValue");
 	 switch(targetId){
 		 case 'led_red_off':
@@ -245,11 +246,11 @@ function doFirst(){
 			 $("#log").append("Component Name: '" + targetId + "', ");
 		 }
 		 $("#log").append("1st hole: '" + hole1.id + "', ");
-		 hole1.parentNode.R = resistorValue.innerHTML;
-		 console.log("hole1 R : " + hole1.parentNode.R);
+		 //hole1.parentNode.R = resistorValue.innerHTML;
+		// console.log("hole1 R : " + hole1.parentNode.R);
 
-		 hole2.parentNode.R = resistorValue.innerHTML;
-		 console.log("hole2 R : " + hole2.parentNode.R);
+		// hole2.parentNode.R = resistorValue.innerHTML;
+		// console.log("hole2 R : " + hole2.parentNode.R);
 
 
 		 $("#log").append("2nd Hole: '" + hole2.id + "' ");
@@ -259,18 +260,32 @@ function doFirst(){
 			 console.log("two same");
 			 graph.getNode(hole1.parentNode.id).addEdge(endNode, 1);
 			 graph.getNode(hole2.parentNode.id).addEdge(startNode,1);
+			 eval(hole1.parentNode.id).R = 1/(1/hole1.parentNode.R + 1/Number(resistorValue.innerHTML));
+			 eval(hole2.parentNode.id).R = 1/(1/hole2.parentNode.R + 1/Number(resistorValue.innerHTML));
+			 hole1.parentNode.R =1/(1/hole1.parentNode.R + 1/Number(resistorValue.innerHTML));
+			 hole2.parentNode.R =1/(1/hole2.parentNode.R + 1/Number(resistorValue.innerHTML));
+			 console.log(eval(hole1.parentNode.id).R);
+
 		 }else if(graph.nodeExist(hole1.parentNode.id)&&!graph.nodeExist(hole2.parentNode.id)) {
 			 console.log("starthole same");
 			 endNode = new Node(hole2.parentNode.id);
 			 endNode.addEdge(startNode,1);
 			 graph.getNode(hole1.parentNode.id).addEdge(endNode, 1);
 			 graph.addNode(endNode);
+			 eval(hole1.parentNode.id).R = Number(resistorValue.innerHTML);
+			 eval(hole2.parentNode.id).R = Number(resistorValue.innerHTML);
+			 hole1.parentNode.R =Number(resistorValue.innerHTML);
+			 hole2.parentNode.R =Number(resistorValue.innerHTML);
 		 }else if(!graph.nodeExist(hole1.parentNode.id)&&graph.nodeExist(hole2.parentNode.id)){
 			 console.log("endhole same");
 			 startNode = new Node(hole1.parentNode.id);
 			 startNode.addEdge(endNode, 1);
 			 graph.getNode(hole2.parentNode.id).addEdge(startNode,1);
 			 graph.addNode(startNode);
+			 eval(hole1.parentNode.id).R = Number(resistorValue.innerHTML);
+			 eval(hole2.parentNode.id).R = Number(resistorValue.innerHTML);
+			 hole1.parentNode.R =Number(resistorValue.innerHTML);
+			 hole2.parentNode.R =Number(resistorValue.innerHTML);
 		 }else{
 			 console.log("new");
 			 startNode = new Node(hole1.parentNode.id);
@@ -279,6 +294,11 @@ function doFirst(){
 			 endNode.addEdge(startNode,1);
 			 graph.addNode(startNode);
 			 graph.addNode(endNode);
+			 hole1.parentNode.R =Number(resistorValue.innerHTML);
+			 hole2.parentNode.R =Number(resistorValue.innerHTML);
+			 eval(hole1.parentNode.id).R = Number(resistorValue.innerHTML);
+			 eval(hole2.parentNode.id).R = Number(resistorValue.innerHTML);
+			 console.log(hole1.parentNode.R);
 		 }
 	 } else {
 		 canvas.style.display = "";
@@ -300,6 +320,7 @@ function checkCirCuit(){
 	var dfsnodes = dfs(graph);
 	var dfsnnodename = [];
 	var plusline = false, minusline = false;
+	var sumR = 0;
 	for(var i in dfsnodes) {
 		dfsnnodename.push(dfsnodes[i].name);
 		if (dfsnodes[i].name.substring(3) == "plusline") {
@@ -314,7 +335,11 @@ function checkCirCuit(){
 		if (dfsnodes[i].name.substring(6) == "minusline") {
 			minusline = true;
 		}
+		//console.log("R:"+eval(dfsnodes[i].name).R);
+		sumR += Number(eval(dfsnodes[i].name).R);
 	}
+	console.log("sumR:"+sumR/2);
+
 	if(minusline&&plusline){
 		console.log("connection complete");
 		for(var i = 0; i < imageindexPoint; i++) {
