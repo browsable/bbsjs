@@ -375,6 +375,7 @@ function checkCirCuit(){
 				ctx.drawImage(catImage, imagexyArray[i][0], imagexyArray[i][1], 42, 36);
 			}
 		}
+
 	}
 }
 
