@@ -288,9 +288,9 @@ function findEndHole(x, y) {
         }
         var allC = Number(((selVoltageValue / (sum/2))*1000));
 
-        MeasureV.innerHTML = ((((sum/2) - eval(endHole.parentNode.id).R) / (sum/2)) * selVoltageValue).toFixed(4);
-        MeasureR.innerHTML = eval(endHole.parentNode.id).R;
-        MeasureC.innerHTML = Number(allC * (eval(endHole.parentNode.id).R / eval(endHole).R)).toFixed(4);
+        MeasureV.innerHTML = ((((sum/2) - eval(endHole.parentNode.id).R) / (sum/2)) * selVoltageValue).toFixed(2);
+        MeasureR.innerHTML = Number(eval(endHole.parentNode.id).R).toFixed(2);
+        MeasureC.innerHTML = Number(allC * (eval(endHole.parentNode.id).R / eval(endHole).R)).toFixed(2);
 
         console.log("전체전류" + allC * (eval(endHole.parentNode.id).R / eval(endHole).R));
         console.log("합성저항" + eval(endHole.parentNode.id).R);
