@@ -264,10 +264,10 @@ function findEndHole(x, y) {
             graph.addNode(endNode);
          }
 
-         console.log(dfs(graph)[0]);
-         console.log(dfs(graph)[dfs(graph).length-1]);
-         console.log("graph~~~~~~");
-         console.log(dfs(graph));
+         //console.log(dfs(graph)[0]);
+         //console.log(dfs(graph)[dfs(graph).length-1]);
+         //console.log("graph~~~~~~");
+         //console.log(dfs(graph));
     }
 
     if((startCenterX == endCenterX) && (startCenterY == endCenterY))
@@ -288,7 +288,17 @@ function findEndHole(x, y) {
         }
         var allC = Number(((selVoltageValue / (sum/2))*1000));
 
-        MeasureV.innerHTML = ((((sum/2) - eval(endHole.parentNode.id).R) / (sum/2)) * selVoltageValue).toFixed(2);
+        //console.log(sum);
+        //console.log(eval(endHole.parentNode.id).R);
+        //console.log(selVoltageValue);
+
+        if((sum/2) == (eval(endHole.parentNode.id).R)) {
+            MeasureV.innerHTML = selVoltageValue;
+        }
+        else {
+            MeasureV.innerHTML = ((((sum/2) - eval(endHole.parentNode.id).R) / (sum/2)) * selVoltageValue).toFixed(2);
+        }
+
         MeasureR.innerHTML = Number(eval(endHole.parentNode.id).R).toFixed(2);
         MeasureC.innerHTML = Number(allC * (eval(endHole.parentNode.id).R / eval(endHole).R)).toFixed(2);
 

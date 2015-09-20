@@ -321,7 +321,7 @@ function setVoltage() {
 	timer = setInterval(checkCirCuit, 200);
 
 	var VoltageC = document.getElementById("voltC");
-	VoltageC.innerHTML = selVoltageValue + "V / " + Number(sum/2).toFixed(2) + "R / " + Number(((selVoltageValue / (sum/2))*1000).toFixed(2)) + "A";
+	VoltageC.innerHTML = selVoltageValue + "V / " + Number(sum/2).toFixed(2) + "R / " + Number(((selVoltageValue / (sum/2))*1000).toFixed(2)) + "mA";
 
 }
 var item;
