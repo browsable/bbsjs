@@ -7,20 +7,20 @@ function cabout(about){
 }
 
 function ENG2KOR(){
-    var File = document.getElementById("File");
-    File.innerHTML = File.innerHTML.replace("File", "파일");
-    var Open = document.getElementById("Open");
-    Open.innerHTML = Open.innerHTML.replace("Open","열기");
-    var Savea = document.getElementById("Savea");
-    Savea.innerHTML = Savea.innerHTML.replace("Save As..","다른 이름으로 저장");
-    var Edit = document.getElementById("Edit");
-    Edit.innerHTML = Edit.innerHTML.replace("Edit","편집");
-    var Undo1 = document.getElementById("Undo1");
-    Undo1.innerHTML = Undo1.innerHTML.replace("undo","되돌리기");
-    var Refresh = document.getElementById("Refresh");
-    Refresh.innerHTML = Refresh.innerHTML.replace("refresh","새로고침");
-    var Help = document.getElementById("Help");
-    Help.innerHTML = Help.innerHTML.replace("Help","지원");
+    //var File = document.getElementById("File");
+    //File.innerHTML = File.innerHTML.replace("File", "파일");
+    //var Open = document.getElementById("Open");
+    //Open.innerHTML = Open.innerHTML.replace("Open","열기");
+    //var Savea = document.getElementById("Savea");
+    //Savea.innerHTML = Savea.innerHTML.replace("Save As..","다른 이름으로 저장");
+    //var Edit = document.getElementById("Edit");
+    //Edit.innerHTML = Edit.innerHTML.replace("Edit","편집");
+    //var Undo1 = document.getElementById("Undo1");
+    //Undo1.innerHTML = Undo1.innerHTML.replace("undo","되돌리기");
+    //var Refresh = document.getElementById("Refresh");
+    //Refresh.innerHTML = Refresh.innerHTML.replace("refresh","새로고침");
+    //var Help = document.getElementById("Help");
+    //Help.innerHTML = Help.innerHTML.replace("Help","지원");
     var Components = document.getElementById("Components");
     Components.innerHTML = Components.innerHTML.replace("Components","소자목록");
     var Properties = document.getElementById("Properties");
@@ -58,20 +58,20 @@ function ENG2KOR(){
 }
 
 function KOR2ENG(){
-    var File = document.getElementById("File");
-    File.innerHTML = File.innerHTML.replace("파일","File");
-    var Open = document.getElementById("Open");
-    Open.innerHTML = Open.innerHTML.replace("열기","Open");
-    var Savea = document.getElementById("Savea");
-    Savea.innerHTML = Savea.innerHTML.replace("다른 이름으로 저장","Save As..");
-    var Edit = document.getElementById("Edit");
-    Edit.innerHTML = Edit.innerHTML.replace("편집","Edit");
-    var Undo1 = document.getElementById("Undo1");
-    Undo1.innerHTML = Undo1.innerHTML.replace("되돌리기","undo");
-    var Refresh = document.getElementById("Refresh");
-    Refresh.innerHTML = Refresh.innerHTML.replace("새로고침","refresh");
-    var Help = document.getElementById("Help");
-    Help.innerHTML = Help.innerHTML.replace("지원","Help");
+    //var File = document.getElementById("File");
+    //File.innerHTML = File.innerHTML.replace("파일","File");
+    //var Open = document.getElementById("Open");
+    //Open.innerHTML = Open.innerHTML.replace("열기","Open");
+    //var Savea = document.getElementById("Savea");
+    //Savea.innerHTML = Savea.innerHTML.replace("다른 이름으로 저장","Save As..");
+    //var Edit = document.getElementById("Edit");
+    //Edit.innerHTML = Edit.innerHTML.replace("편집","Edit");
+    //var Undo1 = document.getElementById("Undo1");
+    //Undo1.innerHTML = Undo1.innerHTML.replace("되돌리기","undo");
+    //var Refresh = document.getElementById("Refresh");
+    //Refresh.innerHTML = Refresh.innerHTML.replace("새로고침","refresh");
+    //var Help = document.getElementById("Help");
+    //Help.innerHTML = Help.innerHTML.replace("지원","Help");
     var Components = document.getElementById("Components");
     Components.innerHTML = Components.innerHTML.replace("소자목록","Components");
     var Properties = document.getElementById("Properties");
